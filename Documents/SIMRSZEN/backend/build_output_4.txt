@@ -1,0 +1,771 @@
+
+> simrs-zen-backend@1.0.0 build
+> tsc
+
+src/__tests__/setup.ts(7,8): error TS2571: Object is of type 'unknown'.
+src/__tests__/setup.ts(13,1): error TS2304: Cannot find name 'beforeAll'.
+src/__tests__/setup.ts(17,1): error TS2304: Cannot find name 'afterAll'.
+src/__tests__/setup.ts(22,1): error TS2304: Cannot find name 'beforeEach'.
+src/config/db.ts(5,7): error TS2403: Subsequent variable declarations must have the same type.  Variable 'prisma' must be of type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs> | undefined', but here has type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/bpjs-cache.controller.ts(64,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-cache.controller.ts(72,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-cache.controller.ts(103,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-cache.controller.ts(111,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-cache.controller.ts(141,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-cache.controller.ts(163,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-cache.controller.ts(188,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(10,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-config.controller.ts(73,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(80,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(88,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-config.controller.ts(138,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(145,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(187,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(194,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(202,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-config.controller.ts(248,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(255,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(263,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-config.controller.ts(301,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(308,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(316,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-config.controller.ts(365,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-config.controller.ts(372,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-log.controller.ts(56,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-log.controller.ts(92,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-log.controller.ts(120,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-log.controller.ts(147,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-queue.controller.ts(47,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-queue.controller.ts(55,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-queue.controller.ts(89,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-queue.controller.ts(97,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-queue.controller.ts(123,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-queue.controller.ts(131,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-queue.controller.ts(154,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-queue.controller.ts(182,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-queue.controller.ts(210,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(10,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-sync.controller.ts(53,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(60,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(68,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-sync.controller.ts(111,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(118,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(126,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-sync.controller.ts(169,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(176,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(184,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-sync.controller.ts(209,31): error TS7006: Parameter 'record' implicitly has an 'any' type.
+src/controllers/bpjs-sync.controller.ts(228,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(235,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(243,16): error TS7030: Not all code paths return a value.
+src/controllers/bpjs-sync.controller.ts(296,23): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjs-sync.controller.ts(303,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/bpjsController.ts(25,25): error TS2339: Property 'setCredentials' does not exist on type 'typeof BpjsService'.
+src/controllers/bpjsController.ts(43,40): error TS2339: Property 'getVClaimParticipantByNoKartu' does not exist on type 'typeof BpjsService'.
+src/controllers/bpjsController.ts(60,40): error TS2339: Property 'getVClaimParticipantByNIK' does not exist on type 'typeof BpjsService'.
+src/controllers/bpjsController.ts(77,40): error TS2339: Property 'insertSEP' does not exist on type 'typeof BpjsService'.
+src/controllers/bpjsController.ts(94,40): error TS2339: Property 'getSEPByNoSEP' does not exist on type 'typeof BpjsService'.
+src/controllers/cssdController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/cssdController.ts(10,38): error TS2339: Property 'instrument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(32,34): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(36,37): error TS2339: Property 'instrument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(60,33): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(81,40): error TS2339: Property 'instrument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(107,33): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(122,44): error TS2339: Property 'instrument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(153,18): error TS2339: Property 'instrument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(176,36): error TS2339: Property 'sterilizationProcess' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(201,31): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(205,34): error TS2339: Property 'sterilizationProcess' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(232,30): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(256,37): error TS2339: Property 'sterilizationProcess' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(284,30): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(308,41): error TS2339: Property 'sterilizationProcess' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(341,18): error TS2339: Property 'sterilizationProcess' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(364,36): error TS2339: Property 'sterileInventory' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(389,33): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(393,36): error TS2339: Property 'sterileInventory' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(420,32): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(442,39): error TS2339: Property 'sterileInventory' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(468,32): error TS7030: Not all code paths return a value.
+src/controllers/cssdController.ts(490,43): error TS2339: Property 'sterileInventory' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/cssdController.ts(521,18): error TS2339: Property 'sterileInventory' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/eclaim.controller.ts(9,16): error TS7030: Not all code paths return a value.
+src/controllers/eclaim.controller.ts(33,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/eclaim.controller.ts(41,16): error TS7030: Not all code paths return a value.
+src/controllers/eclaim.controller.ts(65,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/eclaim.controller.ts(73,16): error TS7030: Not all code paths return a value.
+src/controllers/eclaim.controller.ts(98,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/eclaim.controller.ts(106,16): error TS7030: Not all code paths return a value.
+src/controllers/eclaim.controller.ts(130,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/eclaim.controller.ts(138,16): error TS7030: Not all code paths return a value.
+src/controllers/eclaim.controller.ts(162,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/faskesModuleConfigController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/faskesModuleConfigController.ts(10,46): error TS2339: Property 'faskesModuleConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesModuleConfigController.ts(31,42): error TS7030: Not all code paths return a value.
+src/controllers/faskesModuleConfigController.ts(35,45): error TS2339: Property 'faskesModuleConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesModuleConfigController.ts(64,41): error TS7030: Not all code paths return a value.
+src/controllers/faskesModuleConfigController.ts(79,37): error TS2339: Property 'faskesType' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesModuleConfigController.ts(102,41): error TS2339: Property 'faskesModuleConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesModuleConfigController.ts(116,48): error TS2339: Property 'faskesModuleConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesModuleConfigController.ts(140,41): error TS7030: Not all code paths return a value.
+src/controllers/faskesModuleConfigController.ts(155,52): error TS2339: Property 'faskesModuleConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesModuleConfigController.ts(182,18): error TS2339: Property 'faskesModuleConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesTypeController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/faskesTypeController.ts(10,38): error TS2339: Property 'faskesType' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesTypeController.ts(37,34): error TS7030: Not all code paths return a value.
+src/controllers/faskesTypeController.ts(41,37): error TS2339: Property 'faskesType' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesTypeController.ts(73,33): error TS7030: Not all code paths return a value.
+src/controllers/faskesTypeController.ts(88,45): error TS2339: Property 'faskesType' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesTypeController.ts(99,40): error TS2339: Property 'faskesType' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesTypeController.ts(123,33): error TS7030: Not all code paths return a value.
+src/controllers/faskesTypeController.ts(138,44): error TS2339: Property 'faskesType' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesTypeController.ts(164,33): error TS7030: Not all code paths return a value.
+src/controllers/faskesTypeController.ts(169,46): error TS2339: Property 'faskesModuleConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/faskesTypeController.ts(180,18): error TS2339: Property 'faskesType' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/hrController.ts(2,10): error TS2305: Module '"../config/database.js"' has no exported member 'prisma'.
+src/controllers/hrController.ts(18,32): error TS7030: Not all code paths return a value.
+src/controllers/hrController.ts(152,31): error TS7030: Not all code paths return a value.
+src/controllers/hrController.ts(216,34): error TS7030: Not all code paths return a value.
+src/controllers/idrg.controller.ts(9,16): error TS7030: Not all code paths return a value.
+src/controllers/idrg.controller.ts(33,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/idrg.controller.ts(41,16): error TS7030: Not all code paths return a value.
+src/controllers/idrg.controller.ts(65,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/idrg.controller.ts(73,16): error TS7030: Not all code paths return a value.
+src/controllers/idrg.controller.ts(97,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/idrg.controller.ts(105,16): error TS7030: Not all code paths return a value.
+src/controllers/idrg.controller.ts(129,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/moduleController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/moduleController.ts(15,9): error TS2353: Object literal may only specify known properties, and 'modulePermissions' does not exist in type 'ModuleInclude<DefaultArgs>'.
+src/controllers/moduleController.ts(34,30): error TS7030: Not all code paths return a value.
+src/controllers/moduleController.ts(41,9): error TS2353: Object literal may only specify known properties, and 'modulePermissions' does not exist in type 'ModuleInclude<DefaultArgs>'.
+src/controllers/moduleController.ts(67,29): error TS7030: Not all code paths return a value.
+src/controllers/moduleController.ts(83,16): error TS2353: Object literal may only specify known properties, and 'moduleCode' does not exist in type 'ModuleWhereUniqueInput'.
+src/controllers/moduleController.ts(95,9): error TS2353: Object literal may only specify known properties, and 'moduleCode' does not exist in type '(Without<ModuleCreateInput, ModuleUncheckedCreateInput> & ModuleUncheckedCreateInput) | (Without<...> & ModuleCreateInput)'.
+src/controllers/moduleController.ts(116,29): error TS7030: Not all code paths return a value.
+src/controllers/moduleController.ts(134,9): error TS2353: Object literal may only specify known properties, and 'moduleName' does not exist in type '(Without<ModuleUpdateInput, ModuleUncheckedUpdateInput> & ModuleUncheckedUpdateInput) | (Without<...> & ModuleUpdateInput)'.
+src/controllers/moduleController.ts(155,29): error TS7030: Not all code paths return a value.
+src/controllers/moduleController.ts(160,44): error TS2339: Property 'modulePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/modulePermissionController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/modulePermissionController.ts(10,44): error TS2339: Property 'modulePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/modulePermissionController.ts(35,40): error TS7030: Not all code paths return a value.
+src/controllers/modulePermissionController.ts(39,43): error TS2339: Property 'modulePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/modulePermissionController.ts(72,39): error TS7030: Not all code paths return a value.
+src/controllers/modulePermissionController.ts(87,45): error TS2339: Property 'modulePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/modulePermissionController.ts(110,46): error TS2339: Property 'modulePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/modulePermissionController.ts(134,39): error TS7030: Not all code paths return a value.
+src/controllers/modulePermissionController.ts(149,50): error TS2339: Property 'modulePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/modulePermissionController.ts(172,39): error TS7030: Not all code paths return a value.
+src/controllers/modulePermissionController.ts(177,42): error TS2339: Property 'rolePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/modulePermissionController.ts(188,18): error TS2339: Property 'modulePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/nutritionController.ts(10,38): error TS2339: Property 'patientNutritionAssessment' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(36,41): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(40,37): error TS2339: Property 'patientNutritionAssessment' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(68,40): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(93,40): error TS2339: Property 'patientNutritionAssessment' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(122,40): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(146,44): error TS2339: Property 'patientNutritionAssessment' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(179,18): error TS2339: Property 'patientNutritionAssessment' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(202,36): error TS2339: Property 'mealPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(228,32): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(232,35): error TS2339: Property 'mealPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(261,31): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(285,38): error TS2339: Property 'mealPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(313,31): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(336,42): error TS2339: Property 'mealPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(368,18): error TS2339: Property 'mealPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(391,40): error TS2339: Property 'nutritionist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(417,36): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(421,39): error TS2339: Property 'nutritionist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(449,35): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(468,42): error TS2339: Property 'nutritionist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(491,35): error TS7030: Not all code paths return a value.
+src/controllers/nutritionController.ts(511,46): error TS2339: Property 'nutritionist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/nutritionController.ts(540,18): error TS2339: Property 'nutritionist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/pacs.controller.ts(9,16): error TS7030: Not all code paths return a value.
+src/controllers/pacs.controller.ts(12,24): error TS2339: Property 'file' does not exist on type 'Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>'.
+src/controllers/pacs.controller.ts(41,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/pacs.controller.ts(49,16): error TS7030: Not all code paths return a value.
+src/controllers/pacs.controller.ts(73,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/pacs.controller.ts(81,16): error TS7030: Not all code paths return a value.
+src/controllers/pacs.controller.ts(106,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/pacs.controller.ts(114,16): error TS7030: Not all code paths return a value.
+src/controllers/pacs.controller.ts(137,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/pacs.controller.ts(145,16): error TS7030: Not all code paths return a value.
+src/controllers/pacs.controller.ts(176,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/patientController.ts(3,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?
+src/controllers/patientController.ts(77,31): error TS7030: Not all code paths return a value.
+src/controllers/patientController.ts(109,30): error TS7030: Not all code paths return a value.
+src/controllers/patientController.ts(119,98): error TS2339: Property 'fullName' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/controllers/patientController.ts(148,30): error TS7030: Not all code paths return a value.
+src/controllers/patientController.ts(159,80): error TS2339: Property 'fullName' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/controllers/patientController.ts(188,30): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/psychologyController.ts(10,35): error TS2339: Property 'psychologySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(48,41): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(52,34): error TS2339: Property 'psychologySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(92,40): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(116,37): error TS2339: Property 'psychologySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(144,40): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(168,41): error TS2339: Property 'psychologySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(201,18): error TS2339: Property 'psychologySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(224,40): error TS2339: Property 'psychologist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(250,36): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(254,39): error TS2339: Property 'psychologist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(282,35): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(301,42): error TS2339: Property 'psychologist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(324,35): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(345,46): error TS2339: Property 'psychologist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(375,18): error TS2339: Property 'psychologist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(398,34): error TS2339: Property 'psychologyReport' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(434,40): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(438,33): error TS2339: Property 'psychologyReport' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(476,39): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(498,36): error TS2339: Property 'psychologyReport' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(524,39): error TS7030: Not all code paths return a value.
+src/controllers/psychologyController.ts(545,40): error TS2339: Property 'psychologyReport' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/psychologyController.ts(575,18): error TS2339: Property 'psychologyReport' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/purchasingController.ts(2,10): error TS2305: Module '"../config/database.js"' has no exported member 'prisma'.
+src/controllers/purchasingController.ts(13,32): error TS7030: Not all code paths return a value.
+src/controllers/purchasingController.ts(129,39): error TS7030: Not all code paths return a value.
+src/controllers/purchasingController.ts(243,37): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/rehabilitationController.ts(10,35): error TS2339: Property 'therapySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(54,38): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(58,34): error TS2339: Property 'therapySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(104,37): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(128,37): error TS2339: Property 'therapySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(156,37): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(178,41): error TS2339: Property 'therapySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(209,18): error TS2339: Property 'therapySession' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(232,43): error TS2339: Property 'physiotherapist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(258,39): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(262,42): error TS2339: Property 'physiotherapist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(290,38): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(309,45): error TS2339: Property 'physiotherapist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(332,38): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(352,49): error TS2339: Property 'physiotherapist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(381,18): error TS2339: Property 'physiotherapist' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(404,32): error TS2339: Property 'treatmentPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(441,37): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(445,31): error TS2339: Property 'treatmentPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(484,36): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(509,34): error TS2339: Property 'treatmentPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(538,36): error TS7030: Not all code paths return a value.
+src/controllers/rehabilitationController.ts(562,38): error TS2339: Property 'treatmentPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rehabilitationController.ts(595,18): error TS2339: Property 'treatmentPlan' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/roleController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/roleController.ts(12,9): error TS2353: Object literal may only specify known properties, and 'isActive' does not exist in type 'RoleWhereInput'.
+src/controllers/roleController.ts(15,9): error TS2353: Object literal may only specify known properties, and 'rolePermissions' does not exist in type 'RoleInclude<DefaultArgs>'.
+src/controllers/roleController.ts(46,28): error TS7030: Not all code paths return a value.
+src/controllers/roleController.ts(53,9): error TS2353: Object literal may only specify known properties, and 'rolePermissions' does not exist in type 'RoleInclude<DefaultArgs>'.
+src/controllers/roleController.ts(91,27): error TS7030: Not all code paths return a value.
+src/controllers/roleController.ts(107,16): error TS2353: Object literal may only specify known properties, and 'roleName' does not exist in type 'RoleWhereUniqueInput'.
+src/controllers/roleController.ts(119,9): error TS2353: Object literal may only specify known properties, and 'roleName' does not exist in type '(Without<RoleCreateInput, RoleUncheckedCreateInput> & RoleUncheckedCreateInput) | (Without<...> & RoleCreateInput)'.
+src/controllers/roleController.ts(139,27): error TS7030: Not all code paths return a value.
+src/controllers/roleController.ts(157,9): error TS2353: Object literal may only specify known properties, and 'roleName' does not exist in type '(Without<RoleUpdateInput, RoleUncheckedUpdateInput> & RoleUncheckedUpdateInput) | (Without<...> & RoleUpdateInput)'.
+src/controllers/roleController.ts(178,27): error TS7030: Not all code paths return a value.
+src/controllers/roleController.ts(183,42): error TS2339: Property 'rolePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/roleController.ts(194,36): error TS2339: Property 'userRole' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/roleController.ts(223,33): error TS7030: Not all code paths return a value.
+src/controllers/roleController.ts(259,43): error TS2339: Property 'userRole' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/roleController.ts(273,35): error TS2339: Property 'userRole' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/roleController.ts(295,35): error TS7030: Not all code paths return a value.
+src/controllers/roleController.ts(308,18): error TS2339: Property 'userRole' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rolePermissionController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/rolePermissionController.ts(10,42): error TS2339: Property 'rolePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rolePermissionController.ts(35,38): error TS7030: Not all code paths return a value.
+src/controllers/rolePermissionController.ts(39,41): error TS2339: Property 'rolePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rolePermissionController.ts(72,37): error TS7030: Not all code paths return a value.
+src/controllers/rolePermissionController.ts(98,43): error TS2339: Property 'modulePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rolePermissionController.ts(110,49): error TS2339: Property 'rolePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rolePermissionController.ts(124,44): error TS2339: Property 'rolePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rolePermissionController.ts(150,37): error TS7030: Not all code paths return a value.
+src/controllers/rolePermissionController.ts(165,48): error TS2339: Property 'rolePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/rolePermissionController.ts(194,18): error TS2339: Property 'rolePermission' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/satusehat.controller.ts(9,16): error TS7030: Not all code paths return a value.
+src/controllers/satusehat.controller.ts(33,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/satusehat.controller.ts(41,16): error TS7030: Not all code paths return a value.
+src/controllers/satusehat.controller.ts(65,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/satusehat.controller.ts(73,16): error TS7030: Not all code paths return a value.
+src/controllers/satusehat.controller.ts(97,57): error TS18046: 'error' is of type 'unknown'.
+src/controllers/spiritualCareController.ts(3,34): error TS2307: Cannot find module 'express-validator' or its corresponding type declarations.
+src/controllers/spiritualCareController.ts(10,35): error TS2339: Property 'spiritualRequest' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(48,40): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(52,34): error TS2339: Property 'spiritualRequest' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(92,39): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(114,37): error TS2339: Property 'spiritualRequest' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(140,39): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(162,41): error TS2339: Property 'spiritualRequest' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(193,18): error TS2339: Property 'spiritualRequest' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(216,35): error TS2339: Property 'clergy' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(242,30): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(246,33): error TS2339: Property 'clergy' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(274,29): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(294,36): error TS2339: Property 'clergy' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(318,29): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(339,40): error TS2339: Property 'clergy' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(369,18): error TS2339: Property 'clergy' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(392,35): error TS2339: Property 'spiritualService' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(428,40): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(432,34): error TS2339: Property 'spiritualService' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(470,39): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(491,37): error TS2339: Property 'spiritualService' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(516,39): error TS7030: Not all code paths return a value.
+src/controllers/spiritualCareController.ts(536,41): error TS2339: Property 'spiritualService' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/spiritualCareController.ts(565,18): error TS2339: Property 'spiritualService' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/controllers/userController.ts(3,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?
+src/controllers/userController.ts(46,28): error TS7030: Not all code paths return a value.
+src/controllers/userController.ts(78,27): error TS7030: Not all code paths return a value.
+src/controllers/userController.ts(114,27): error TS7030: Not all code paths return a value.
+src/controllers/userController.ts(200,26): error TS7030: Not all code paths return a value.
+src/middleware/bpjs-auth.middleware.ts(6,35): error TS7030: Not all code paths return a value.
+src/middleware/bpjs-auth.middleware.ts(46,21): error TS18046: 'error' is of type 'unknown'.
+src/middleware/bpjs-auth.middleware.ts(57,31): error TS7030: Not all code paths return a value.
+src/middleware/rbac.middleware.ts(255,10): error TS7030: Not all code paths return a value.
+src/middleware/rbac.middleware.ts(287,10): error TS7030: Not all code paths return a value.
+src/middleware/role.middleware.ts(17,10): error TS7030: Not all code paths return a value.
+src/middleware/validation.ts(5,10): error TS7030: Not all code paths return a value.
+src/routes/academicActivitiesRoutes.ts(32,38): error TS2339: Property 'dokter' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/auth.route.ts(3,20): error TS2307: Cannot find module 'bcryptjs' or its corresponding type declarations.
+src/routes/auth.route.ts(11,23): error TS7030: Not all code paths return a value.
+src/routes/auth.route.ts(24,9): error TS2353: Object literal may only specify known properties, and 'userRoles' does not exist in type 'UserInclude<DefaultArgs>'.
+src/routes/auth.route.ts(56,21): error TS2339: Property 'userRoles' does not exist on type 'GetResult<{ id: string; username: string; email: string | null; password: string; fullName: string; role: string; roleId: string | null; isActive: boolean; lastLoginAt: Date | null; departmentId: string | null; createdAt: Date; updatedAt: Date; }, unknown> & {}'.
+src/routes/auth.route.ts(56,35): error TS7006: Parameter 'ur' implicitly has an 'any' type.
+src/routes/billingRoutes.ts(11,39): error TS2551: Property 'transaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean '$transaction'?
+src/routes/clinicalRotationsRoutes.ts(28,35): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/clinicalRotationsRoutes.ts(40,38): error TS2339: Property 'dokter' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(25,28): error TS7030: Not all code paths return a value.
+src/routes/commonRoutes.ts(32,41): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(70,45): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(95,29): error TS7030: Not all code paths return a value.
+src/routes/commonRoutes.ts(102,50): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(111,35): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(162,35): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(186,28): error TS7030: Not all code paths return a value.
+src/routes/commonRoutes.ts(193,43): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(204,35): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(260,35): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(301,34): error TS2339: Property 'dokter' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(323,13): error TS2353: Object literal may only specify known properties, and 'nama' does not exist in type 'PatientSelect<DefaultArgs>'.
+src/routes/commonRoutes.ts(346,36): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/commonRoutes.ts(361,39): error TS2551: Property 'transaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean '$transaction'?
+src/routes/commonRoutes.ts(381,49): error TS7030: Not all code paths return a value.
+src/routes/commonRoutes.ts(416,7): error TS7006: Parameter 'userRole' implicitly has an 'any' type.
+src/routes/commonRoutes.ts(559,36): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/routes/commonRoutes.ts(569,16): error TS18046: 'error' is of type 'unknown'.
+src/routes/dashboardRoutes.ts(13,38): error TS2339: Property 'dokter' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/dashboardRoutes.ts(41,13): error TS2353: Object literal may only specify known properties, and 'nama' does not exist in type 'PatientSelect<DefaultArgs>'.
+src/routes/hrRoutes.ts(15,10): error TS2305: Module '"../middleware/errorHandler.js"' has no exported member 'asyncHandler'.
+src/routes/icd10Routes.ts(7,36): error TS7030: Not all code paths return a value.
+src/routes/medicalRecordsRoutes.ts(11,34): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/medicalRecordsRoutes.ts(47,39): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/medicalRecordsRoutes.ts(52,39): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/medicalRecordsRoutes.ts(64,40): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/medicalTraineesRoutes.ts(11,35): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/menuAccessRoutes.ts(9,36): error TS7030: Not all code paths return a value.
+src/routes/menuAccessRoutes.ts(18,46): error TS2339: Property 'userRole' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/pacs.route.ts(2,20): error TS2307: Cannot find module 'multer' or its corresponding type declarations.
+src/routes/purchasingRoutes.ts(17,10): error TS2305: Module '"../middleware/errorHandler.js"' has no exported member 'asyncHandler'.
+src/routes/researchProjectsRoutes.ts(28,34): error TS2339: Property 'dokter' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/routes/researchProjectsRoutes.ts(40,38): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/scripts/seed-shifts.ts(8,41): error TS2339: Property 'shift' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/scripts/seed-shifts.ts(16,18): error TS2339: Property 'shift' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/scripts/seed-shifts.ts(58,18): error TS2339: Property 'shift' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/accounting.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'ChartOfAccounts'.
+src/services/accounting.service.ts(1,41): error TS2305: Module '"@prisma/client"' has no exported member 'Transaction'.
+src/services/accounting.service.ts(1,54): error TS2305: Module '"@prisma/client"' has no exported member 'TransactionDetail'.
+src/services/accounting.service.ts(20,36): error TS2339: Property 'chartOfAccounts' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/accounting.service.ts(72,41): error TS2339: Property 'transaction' does not exist on type 'Omit<PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>, "$connect" | ... 4 more ... | "$extends">'.
+src/services/accounting.service.ts(86,20): error TS2339: Property 'transactionDetail' does not exist on type 'Omit<PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>, "$connect" | ... 4 more ... | "$extends">'.
+src/services/accounting.service.ts(114,40): error TS2551: Property 'transaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean '$transaction'?
+src/services/accounting.service.ts(131,20): error TS2339: Property 'generalLedger' does not exist on type 'Omit<PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>, "$connect" | ... 4 more ... | "$extends">'.
+src/services/accounting.service.ts(146,39): error TS2339: Property 'trialBalance' does not exist on type 'Omit<PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>, "$connect" | ... 4 more ... | "$extends">'.
+src/services/accounting.service.ts(156,22): error TS2339: Property 'trialBalance' does not exist on type 'Omit<PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>, "$connect" | ... 4 more ... | "$extends">'.
+src/services/accounting.service.ts(167,22): error TS2339: Property 'trialBalance' does not exist on type 'Omit<PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>, "$connect" | ... 4 more ... | "$extends">'.
+src/services/accounting.service.ts(181,18): error TS2339: Property 'transaction' does not exist on type 'Omit<PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>, "$connect" | ... 4 more ... | "$extends">'.
+src/services/accounting.service.ts(192,36): error TS2551: Property 'transaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean '$transaction'?
+src/services/accounting.service.ts(208,42): error TS2339: Property 'trialBalance' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/accounting.service.ts(242,41): error TS2339: Property 'depreciation' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/accounting.service.ts(271,20): error TS2339: Property 'depreciation' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/accounting.service.ts(346,35): error TS2339: Property 'financialReport' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/appointment-scheduling.service.ts(1,33): error TS2305: Module '"@prisma/client"' has no exported member 'Dokter'.
+src/services/appointment-scheduling.service.ts(1,41): error TS2305: Module '"@prisma/client"' has no exported member 'Poli'.
+src/services/bed-management.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'Kamar'.
+src/services/bed-management.service.ts(1,31): error TS2724: '"@prisma/client"' has no exported member named 'InpatientStay'. Did you mean 'Inpatient'?
+src/services/bed-management.service.ts(1,55): error TS2305: Module '"@prisma/client"' has no exported member 'Poli'.
+src/services/bed-management.service.ts(40,35): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bed-management.service.ts(53,25): error TS7006: Parameter 'kamar' implicitly has an 'any' type.
+src/services/bed-management.service.ts(62,48): error TS7006: Parameter 'stay' implicitly has an 'any' type.
+src/services/bed-management.service.ts(94,34): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bed-management.service.ts(152,34): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bed-management.service.ts(173,59): error TS7006: Parameter 'stay' implicitly has an 'any' type.
+src/services/bed-management.service.ts(225,38): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bed-management.service.ts(233,69): error TS7006: Parameter 'kamar' implicitly has an 'any' type.
+src/services/bed-management.service.ts(235,44): error TS2551: Property 'inpatientStay' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean 'inpatient'?
+src/services/bed-management.service.ts(255,52): error TS7006: Parameter 'total' implicitly has an 'any' type.
+src/services/bed-management.service.ts(255,59): error TS7006: Parameter 'stay' implicitly has an 'any' type.
+src/services/bpjs-cache.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'BpjsCache'.
+src/services/bpjs-cache.service.ts(16,20): error TS2339: Property 'bpjsCache' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-cache.service.ts(18,27): error TS2339: Property 'bpjsCache' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-cache.service.ts(36,39): error TS2339: Property 'bpjsCache' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-cache.service.ts(62,20): error TS2339: Property 'bpjsCache' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-cache.service.ts(75,35): error TS2339: Property 'bpjsCache' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-cache.service.ts(109,20): error TS2339: Property 'bpjsCache' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-cache.service.ts(122,27): error TS2339: Property 'bpjsCache' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-config.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'BpjsConfig'.
+src/services/bpjs-config.service.ts(26,25): error TS2339: Property 'bpjsConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-config.service.ts(35,33): error TS2339: Property 'bpjsConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-config.service.ts(53,34): error TS2339: Property 'bpjsConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-config.service.ts(55,24): error TS7006: Parameter 'config' implicitly has an 'any' type.
+src/services/bpjs-config.service.ts(80,40): error TS2339: Property 'bpjsConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-config.service.ts(97,25): error TS2339: Property 'bpjsConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-config.service.ts(106,25): error TS2339: Property 'bpjsConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-config.service.ts(116,34): error TS2339: Property 'bpjsConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-config.service.ts(120,24): error TS7006: Parameter 'config' implicitly has an 'any' type.
+src/services/bpjs-log.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'BpjsLog'.
+src/services/bpjs-log.service.ts(19,25): error TS2339: Property 'bpjsLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-log.service.ts(37,25): error TS2339: Property 'bpjsLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-log.service.ts(57,25): error TS2339: Property 'bpjsLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-log.service.ts(69,25): error TS2339: Property 'bpjsLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-log.service.ts(82,25): error TS2339: Property 'bpjsLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-log.service.ts(92,33): error TS2339: Property 'bpjsLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-log.service.ts(112,31): error TS2339: Property 'bpjsLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-log.service.ts(122,18): error TS7006: Parameter 'log' implicitly has an 'any' type.
+src/services/bpjs-queue.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'BpjsSyncQueue'.
+src/services/bpjs-queue.service.ts(17,27): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-queue.service.ts(38,25): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-queue.service.ts(71,27): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-queue.service.ts(85,30): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-queue.service.ts(98,20): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-queue.service.ts(112,25): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-queue.service.ts(123,35): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-queue.service.ts(144,35): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-queue.service.ts(164,25): error TS2339: Property 'bpjsSyncQueue' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-sync.service.ts(1,31): error TS2305: Module '"@prisma/client"' has no exported member 'BpjsSyncRecord'.
+src/services/bpjs-sync.service.ts(1,56): error TS2305: Module '"@prisma/client"' has no exported member 'BpjsPatientData'.
+src/services/bpjs-sync.service.ts(23,15): error TS2561: Object literal may only specify known properties, but 'item' does not exist in type 'PrescriptionInclude<DefaultArgs>'. Did you mean to write 'items'?
+src/services/bpjs-sync.service.ts(34,44): error TS2339: Property 'bpjsPatientData' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-sync.service.ts(49,33): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(51,29): error TS2339: Property 'dokter' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(52,29): error TS2339: Property 'dokter' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(53,27): error TS2339: Property 'poli' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(54,27): error TS2339: Property 'poli' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(59,29): error TS2339: Property 'totalBiaya' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(60,29): error TS2339: Property 'totalBiaya' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(61,36): error TS2339: Property 'catatan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(72,34): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/bpjs-sync.service.ts(82,39): error TS2339: Property 'bpjsSyncRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-sync.service.ts(111,23): error TS18046: 'error' is of type 'unknown'.
+src/services/bpjs-sync.service.ts(129,11): error TS2353: Object literal may only specify known properties, and 'poli' does not exist in type 'VisitInclude<DefaultArgs>'.
+src/services/bpjs-sync.service.ts(139,44): error TS2339: Property 'bpjsPatientData' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-sync.service.ts(154,24): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(163,39): error TS2339: Property 'bpjsSyncRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-sync.service.ts(192,23): error TS18046: 'error' is of type 'unknown'.
+src/services/bpjs-sync.service.ts(214,15): error TS2561: Object literal may only specify known properties, but 'item' does not exist in type 'PrescriptionInclude<DefaultArgs>'. Did you mean to write 'items'?
+src/services/bpjs-sync.service.ts(225,44): error TS2339: Property 'bpjsPatientData' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-sync.service.ts(242,29): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(248,27): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/bpjs-sync.service.ts(251,35): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(255,30): error TS2339: Property 'catatan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(258,31): error TS2339: Property 'poli' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(259,29): error TS2339: Property 'poli' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(268,51): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(268,81): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/bpjs-sync.service.ts(269,32): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/bpjs-sync.service.ts(280,39): error TS2339: Property 'bpjsSyncRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-sync.service.ts(309,23): error TS18046: 'error' is of type 'unknown'.
+src/services/bpjs-sync.service.ts(332,39): error TS2339: Property 'bpjsSyncRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjs-sync.service.ts(349,27): error TS2339: Property 'bpjsSyncRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/bpjsService.ts(3,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?
+src/services/eclaim.service.ts(1,40): error TS2305: Module '"@prisma/client"' has no exported member 'MedicalRecord'.
+src/services/eclaim.service.ts(65,9): error TS2353: Object literal may only specify known properties, and 'poli' does not exist in type 'VisitInclude<DefaultArgs>'.
+src/services/eclaim.service.ts(79,39): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(80,15): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(80,36): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(87,26): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/eclaim.service.ts(88,25): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(90,31): error TS2339: Property 'statusKunjungan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(94,23): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/eclaim.service.ts(97,31): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(101,26): error TS2339: Property 'catatan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(104,27): error TS2339: Property 'poli' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(105,25): error TS2339: Property 'poli' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(114,38): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(115,28): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/eclaim.service.ts(146,11): error TS18046: 'error' is of type 'unknown'.
+src/services/eclaim.service.ts(151,21): error TS18046: 'error' is of type 'unknown'.
+src/services/eclaim.service.ts(152,20): error TS18046: 'error' is of type 'unknown'.
+src/services/eclaim.service.ts(152,62): error TS18046: 'error' is of type 'unknown'.
+src/services/eclaim.service.ts(173,11): error TS2353: Object literal may only specify known properties, and 'medicalRecords' does not exist in type 'VisitInclude<DefaultArgs>'.
+src/services/eclaim.service.ts(184,29): error TS2339: Property 'statusKunjungan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(185,24): error TS2339: Property 'catatan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(186,25): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(186,59): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(187,26): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(187,60): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(189,31): error TS2339: Property 'totalBiaya' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/eclaim.service.ts(195,33): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/eclaim.service.ts(224,18): error TS18046: 'error' is of type 'unknown'.
+src/services/eclaim.service.ts(260,18): error TS18046: 'error' is of type 'unknown'.
+src/services/faskesProfileService.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'FaskesProfile'.
+src/services/faskesProfileService.ts(39,44): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/faskesProfileService.ts(43,29): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/faskesProfileService.ts(53,29): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/faskesProfileService.ts(74,27): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/financial.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'FinancialTransaction'.
+src/services/financial.service.ts(22,40): error TS2339: Property 'financialTransaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/financial.service.ts(53,19): error TS2353: Object literal may only specify known properties, and 'statusBayar' does not exist in type '(Without<VisitUpdateInput, VisitUncheckedUpdateInput> & VisitUncheckedUpdateInput) | (Without<...> & VisitUpdateInput)'.
+src/services/financial.service.ts(91,27): error TS2339: Property 'financialTransaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/financial.service.ts(131,41): error TS2339: Property 'financialTransaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/financial.service.ts(141,17): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(142,18): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+src/services/financial.service.ts(142,23): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(145,17): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(146,18): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+src/services/financial.service.ts(146,23): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(149,17): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(150,18): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+src/services/financial.service.ts(150,23): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(177,41): error TS2339: Property 'financialTransaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/financial.service.ts(187,17): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(188,18): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+src/services/financial.service.ts(188,23): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(191,17): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(192,18): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+src/services/financial.service.ts(192,23): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(195,17): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(196,18): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+src/services/financial.service.ts(196,23): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(215,40): error TS2339: Property 'financialTransaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/financial.service.ts(227,47): error TS2339: Property 'financialTransaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/financial.service.ts(265,41): error TS2339: Property 'financialTransaction' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/financial.service.ts(290,17): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(291,18): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+src/services/financial.service.ts(291,23): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(294,17): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/financial.service.ts(295,18): error TS7006: Parameter 'sum' implicitly has an 'any' type.
+src/services/financial.service.ts(295,23): error TS7006: Parameter 't' implicitly has an 'any' type.
+src/services/hr.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'Pegawai'.
+src/services/hr.service.ts(1,33): error TS2305: Module '"@prisma/client"' has no exported member 'Presensi'.
+src/services/hr.service.ts(26,45): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(34,37): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(63,27): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(93,27): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(120,37): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(137,20): error TS2339: Property 'pegawai' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(155,47): error TS2339: Property 'presensi' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(169,39): error TS2339: Property 'presensi' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(194,39): error TS2339: Property 'presensi' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(209,46): error TS2339: Property 'presensi' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(244,27): error TS2339: Property 'presensi' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(277,40): error TS2339: Property 'presensi' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/hr.service.ts(287,45): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/services/hr.service.ts(288,45): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/services/hr.service.ts(289,44): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/services/hr.service.ts(290,45): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/services/hr.service.ts(291,45): error TS7006: Parameter 'a' implicitly has an 'any' type.
+src/services/icdWHOService.ts(3,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?
+src/services/icdWHOService.ts(37,18): error TS2339: Property 'iCDCredential' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/icdWHOService.ts(50,40): error TS2339: Property 'iCDCredential' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrg.service.ts(1,40): error TS2305: Module '"@prisma/client"' has no exported member 'MedicalRecord'.
+src/services/idrg.service.ts(33,15): error TS2561: Object literal may only specify known properties, but 'item' does not exist in type 'PrescriptionInclude<DefaultArgs>'. Did you mean to write 'items'?
+src/services/idrg.service.ts(51,41): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(52,17): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(52,38): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(57,24): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/idrg.service.ts(58,29): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(59,29): error TS2339: Property 'statusKunjungan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(76,22): error TS2339: Property 'totalBiaya' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(76,48): error TS2339: Property 'totalBiaya' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(199,11): error TS2353: Object literal may only specify known properties, and 'medicalRecords' does not exist in type 'VisitInclude<DefaultArgs>'.
+src/services/idrg.service.ts(207,26): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(208,24): error TS2551: Property 'patient' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'. Did you mean 'patientId'?
+src/services/idrg.service.ts(209,26): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrg.service.ts(209,60): error TS2339: Property 'medicalRecords' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/idrgService.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'IDRGRule'.
+src/services/idrgService.ts(1,34): error TS2305: Module '"@prisma/client"' has no exported member 'IDRGPatientCase'.
+src/services/idrgService.ts(3,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?
+src/services/idrgService.ts(48,41): error TS2339: Property 'iDRGRule' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(56,37): error TS2339: Property 'iDRGRule' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(75,27): error TS2339: Property 'iDRGRule' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(89,27): error TS2339: Property 'iDRGRule' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(104,40): error TS2339: Property 'iDRGRule' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(124,20): error TS2339: Property 'iDRGRule' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(151,37): error TS2339: Property 'iDRGRule' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(179,40): error TS2339: Property 'iDRGPatientCase' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(207,27): error TS2339: Property 'iDRGPatientCase' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(238,27): error TS2339: Property 'iDRGPatientCase' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(255,40): error TS2339: Property 'iDRGPatientCase' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(279,40): error TS2339: Property 'iDRGPatientCase' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/idrgService.ts(300,40): error TS2339: Property 'iDRGPatientCase' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/inpatient.service.ts(1,24): error TS2724: '"@prisma/client"' has no exported member named 'InpatientStay'. Did you mean 'Inpatient'?
+src/services/inpatient.service.ts(1,39): error TS2305: Module '"@prisma/client"' has no exported member 'Kamar'.
+src/services/inpatient.service.ts(1,62): error TS2305: Module '"@prisma/client"' has no exported member 'Poli'.
+src/services/inpatient.service.ts(21,34): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/inpatient.service.ts(34,20): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/inpatient.service.ts(42,42): error TS2551: Property 'inpatientStay' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean 'inpatient'?
+src/services/inpatient.service.ts(75,33): error TS2551: Property 'inpatientStay' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean 'inpatient'?
+src/services/inpatient.service.ts(88,20): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/inpatient.service.ts(94,37): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/inpatient.service.ts(107,20): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/inpatient.service.ts(113,40): error TS2551: Property 'inpatientStay' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean 'inpatient'?
+src/services/inpatient.service.ts(139,33): error TS2551: Property 'inpatientStay' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean 'inpatient'?
+src/services/inpatient.service.ts(152,20): error TS2339: Property 'kamar' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/inpatient.service.ts(158,43): error TS2551: Property 'inpatientStay' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean 'inpatient'?
+src/services/inpatient.service.ts(184,27): error TS2551: Property 'inpatientStay' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean 'inpatient'?
+src/services/inpatient.service.ts(222,27): error TS2551: Property 'inpatientStay' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'. Did you mean 'inpatient'?
+src/services/kycDicomService.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'KYCDocument'.
+src/services/kycDicomService.ts(1,37): error TS2305: Module '"@prisma/client"' has no exported member 'DICOMConfig'.
+src/services/kycDicomService.ts(1,50): error TS2305: Module '"@prisma/client"' has no exported member 'FaskesProfile'.
+src/services/kycDicomService.ts(3,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?
+src/services/kycDicomService.ts(44,42): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(53,40): error TS2339: Property 'kYCDocument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(72,38): error TS2339: Property 'kYCDocument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(88,44): error TS2339: Property 'kYCDocument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(108,20): error TS2339: Property 'kYCDocument' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(127,42): error TS2339: Property 'faskesProfile' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(136,43): error TS2339: Property 'dICOMConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(142,29): error TS2339: Property 'dICOMConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(148,29): error TS2339: Property 'dICOMConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(165,27): error TS2339: Property 'dICOMConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(178,27): error TS2339: Property 'dICOMConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/kycDicomService.ts(192,20): error TS2339: Property 'dICOMConfig' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/laboratory.service.ts(26,11): error TS2353: Object literal may only specify known properties, and 'patientId' does not exist in type '(Without<LaboratoryTestCreateInput, LaboratoryTestUncheckedCreateInput> & LaboratoryTestUncheckedCreateInput) | (Without<...> & LaboratoryTestCreateInput)'.
+src/services/laboratory.service.ts(42,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'LaboratoryTestInclude<DefaultArgs>'.
+src/services/laboratory.service.ts(68,11): error TS2353: Object literal may only specify known properties, and 'laboratoryResults' does not exist in type 'LaboratoryTestInclude<DefaultArgs>'.
+src/services/laboratory.service.ts(76,16): error TS2339: Property 'status' does not exist on type 'GetResult<{ id: string; name: string; code: string; group: string | null; description: string | null; price: Decimal; normalValues: string | null; sampleType: string | null; preparation: string | null; processingTime: number | null; isActive: boolean; createdAt: Date; updatedAt: Date; }, unknown> & {}'.
+src/services/laboratory.service.ts(84,13): error TS2353: Object literal may only specify known properties, and 'laboratoryTestId' does not exist in type 'LaboratoryResultWhereInput'.
+src/services/laboratory.service.ts(88,13): error TS2353: Object literal may only specify known properties, and 'nilai' does not exist in type '(Without<LaboratoryResultUpdateManyMutationInput, LaboratoryResultUncheckedUpdateManyInput> & LaboratoryResultUncheckedUpdateManyInput) | (Without<...> & LaboratoryResultUpdateManyMutationInput)'.
+src/services/laboratory.service.ts(98,11): error TS2353: Object literal may only specify known properties, and 'status' does not exist in type '(Without<LaboratoryTestUpdateInput, LaboratoryTestUncheckedUpdateInput> & LaboratoryTestUncheckedUpdateInput) | (Without<...> & LaboratoryTestUpdateInput)'.
+src/services/laboratory.service.ts(102,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'LaboratoryTestInclude<DefaultArgs>'.
+src/services/laboratory.service.ts(144,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'LaboratoryTestInclude<DefaultArgs>'.
+src/services/laboratory.service.ts(153,20): error TS2353: Object literal may only specify known properties, and 'tanggalPermintaan' does not exist in type 'Enumerable<LaboratoryTestOrderByWithRelationInput>'.
+src/services/laboratory.service.ts(169,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'LaboratoryTestInclude<DefaultArgs>'.
+src/services/laboratory.service.ts(193,16): error TS2339: Property 'status' does not exist on type 'GetResult<{ id: string; name: string; code: string; group: string | null; description: string | null; price: Decimal; normalValues: string | null; sampleType: string | null; preparation: string | null; processingTime: number | null; isActive: boolean; createdAt: Date; updatedAt: Date; }, unknown> & {}'.
+src/services/laboratory.service.ts(200,11): error TS2353: Object literal may only specify known properties, and 'status' does not exist in type '(Without<LaboratoryTestUpdateInput, LaboratoryTestUncheckedUpdateInput> & LaboratoryTestUncheckedUpdateInput) | (Without<...> & LaboratoryTestUpdateInput)'.
+src/services/laboratory.service.ts(203,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'LaboratoryTestInclude<DefaultArgs>'.
+src/services/medical-record.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'MedicalRecord'.
+src/services/medical-record.service.ts(1,55): error TS2305: Module '"@prisma/client"' has no exported member 'Dokter'.
+src/services/medical-record.service.ts(25,42): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/medical-record.service.ts(86,42): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/medical-record.service.ts(125,27): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/medical-record.service.ts(161,27): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/medical-record.service.ts(190,27): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/medical-record.service.ts(246,27): error TS2339: Property 'medicalRecord' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/pacs.service.ts(28,42): error TS2694: Namespace 'global.Express' has no exported member 'Multer'.
+src/services/patientService.ts(61,11): error TS2353: Object literal may only specify known properties, and 'nama' does not exist in type 'PatientWhereInput'.
+src/services/patientService.ts(73,11): error TS2353: Object literal may only specify known properties, and 'noKartu' does not exist in type 'PatientWhereInput'.
+src/services/patientService.ts(79,11): error TS2353: Object literal may only specify known properties, and 'patientId' does not exist in type 'PatientWhereInput'.
+src/services/patientService.ts(119,13): error TS2353: Object literal may only specify known properties, and 'tanggalPeriksa' does not exist in type 'Enumerable<VisitOrderByWithRelationInput>'.
+src/services/patientService.ts(136,9): error TS2322: Type 'string | undefined' is not assignable to type 'string'.
+  Type 'undefined' is not assignable to type 'string'.
+src/services/patientService.ts(154,9): error TS2353: Object literal may only specify known properties, and 'nama' does not exist in type '(Without<PatientUpdateInput, PatientUncheckedUpdateInput> & PatientUncheckedUpdateInput) | (Without<...> & PatientUpdateInput)'.
+src/services/patientService.ts(198,9): error TS2353: Object literal may only specify known properties, and 'nama' does not exist in type 'PatientWhereInput'.
+src/services/patientService.ts(216,9): error TS2353: Object literal may only specify known properties, and 'noKartu' does not exist in type 'PatientWhereInput'.
+src/services/patientService.ts(225,9): error TS2353: Object literal may only specify known properties, and 'patientId' does not exist in type 'PatientWhereInput'.
+src/services/patientService.ts(240,9): error TS2353: Object literal may only specify known properties, and 'nama' does not exist in type 'Enumerable<PatientOrderByWithRelationInput>'.
+src/services/pharmacy.service.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'Item'.
+src/services/pharmacy.service.ts(13,33): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/pharmacy.service.ts(33,33): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/pharmacy.service.ts(45,40): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/pharmacy.service.ts(76,33): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/pharmacy.service.ts(92,11): error TS2353: Object literal may only specify known properties, and 'patientId' does not exist in type 'Without<PrescriptionCreateInput, PrescriptionUncheckedCreateInput> & PrescriptionUncheckedCreateInput'.
+src/services/pharmacy.service.ts(101,11): error TS2561: Object literal may only specify known properties, but 'item' does not exist in type 'PrescriptionInclude<DefaultArgs>'. Did you mean to write 'items'?
+src/services/pharmacy.service.ts(108,20): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/pharmacy.service.ts(147,15): error TS2353: Object literal may only specify known properties, and 'visitId' does not exist in type 'VisitSelect<DefaultArgs>'.
+src/services/pharmacy.service.ts(166,18): error TS2353: Object literal may only specify known properties, and 'patientId' does not exist in type 'PrescriptionWhereInput'.
+src/services/pharmacy.service.ts(177,15): error TS2353: Object literal may only specify known properties, and 'visitId' does not exist in type 'VisitSelect<DefaultArgs>'.
+src/services/pharmacy.service.ts(202,41): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/pharmacy.service.ts(210,36): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/pharmacy.service.ts(253,27): error TS2339: Property 'item' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/radiology.service.ts(24,11): error TS2353: Object literal may only specify known properties, and 'patientId' does not exist in type '(Without<RadiologyExamCreateInput, RadiologyExamUncheckedCreateInput> & RadiologyExamUncheckedCreateInput) | (Without<...> & RadiologyExamCreateInput)'.
+src/services/radiology.service.ts(32,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'RadiologyExamInclude<DefaultArgs>'.
+src/services/radiology.service.ts(61,16): error TS2339: Property 'status' does not exist on type 'GetResult<{ id: string; name: string; code: string; category: string | null; description: string | null; price: Decimal; preparation: string | null; contraindications: string | null; isActive: boolean; createdAt: Date; updatedAt: Date; }, unknown> & {}'.
+src/services/radiology.service.ts(68,11): error TS2353: Object literal may only specify known properties, and 'hasil' does not exist in type '(Without<RadiologyExamUpdateInput, RadiologyExamUncheckedUpdateInput> & RadiologyExamUncheckedUpdateInput) | (Without<...> & RadiologyExamUpdateInput)'.
+src/services/radiology.service.ts(70,43): error TS2339: Property 'catatan' does not exist on type 'GetResult<{ id: string; name: string; code: string; category: string | null; description: string | null; price: Decimal; preparation: string | null; contraindications: string | null; isActive: boolean; createdAt: Date; updatedAt: Date; }, unknown> & {}'.
+src/services/radiology.service.ts(75,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'RadiologyExamInclude<DefaultArgs>'.
+src/services/radiology.service.ts(116,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'RadiologyExamInclude<DefaultArgs>'.
+src/services/radiology.service.ts(124,20): error TS2353: Object literal may only specify known properties, and 'tanggalPermintaan' does not exist in type 'Enumerable<RadiologyExamOrderByWithRelationInput>'.
+src/services/radiology.service.ts(140,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'RadiologyExamInclude<DefaultArgs>'.
+src/services/radiology.service.ts(163,16): error TS2339: Property 'status' does not exist on type 'GetResult<{ id: string; name: string; code: string; category: string | null; description: string | null; price: Decimal; preparation: string | null; contraindications: string | null; isActive: boolean; createdAt: Date; updatedAt: Date; }, unknown> & {}'.
+src/services/radiology.service.ts(170,11): error TS2353: Object literal may only specify known properties, and 'status' does not exist in type '(Without<RadiologyExamUpdateInput, RadiologyExamUncheckedUpdateInput> & RadiologyExamUncheckedUpdateInput) | (Without<...> & RadiologyExamUpdateInput)'.
+src/services/radiology.service.ts(173,11): error TS2353: Object literal may only specify known properties, and 'patient' does not exist in type 'RadiologyExamInclude<DefaultArgs>'.
+src/services/referral.service.ts(1,40): error TS2305: Module '"@prisma/client"' has no exported member 'Dokter'.
+src/services/referral.service.ts(1,48): error TS2305: Module '"@prisma/client"' has no exported member 'Poli'.
+src/services/satusehat.service.ts(1,40): error TS2305: Module '"@prisma/client"' has no exported member 'MedicalRecord'.
+src/services/satusehat.service.ts(75,19): error TS2339: Property 'patientId' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(79,26): error TS2339: Property 'patientId' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(85,21): error TS2339: Property 'noKartu' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(87,26): error TS2339: Property 'noKartu' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(93,25): error TS2339: Property 'nama' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(96,23): error TS2339: Property 'jenisKelamin' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(97,26): error TS2339: Property 'tanggalLahir' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(97,49): error TS2339: Property 'tanggalLahir' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(98,24): error TS2339: Property 'alamat' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(99,23): error TS2339: Property 'alamat' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(101,24): error TS2339: Property 'noHp' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(103,24): error TS2339: Property 'noHp' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(114,17): error TS2339: Property 'visitId' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(115,21): error TS2339: Property 'statusKunjungan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(133,39): error TS2339: Property 'patientId' does not exist on type 'GetResult<{ id: string; nik: string; medicalRecordNumber: string; name: string; dateOfBirth: Date; gender: string; bloodType: string | null; bpjsNumber: string | null; phone: string | null; ... 9 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(136,22): error TS2339: Property 'tanggalPeriksa' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(137,20): error TS2339: Property 'statusKunjungan' does not exist on type 'GetResult<{ id: string; patientId: string; doctorId: string; roomId: string | null; complaint: string; diagnosis: string | null; treatment: string | null; vitalSigns: JsonValue; notes: string | null; ... 8 more ...; updatedAt: Date; }, unknown> & {}'.
+src/services/satusehat.service.ts(203,30): error TS18046: 'error' is of type 'unknown'.
+src/services/satusehat.service.ts(281,30): error TS18046: 'error' is of type 'unknown'.
+src/services/satusehatMasterDataService.ts(3,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?
+src/services/satusehatMasterDataService.ts(36,25): error TS18046: 'data' is of type 'unknown'.
+src/services/satusehatMasterDataService.ts(48,22): error TS2353: Object literal may only specify known properties, and 'code' does not exist in type 'ProvinceWhereUniqueInput'.
+src/services/satusehatMasterDataService.ts(53,15): error TS2353: Object literal may only specify known properties, and 'code' does not exist in type '(Without<ProvinceCreateInput, ProvinceUncheckedCreateInput> & ProvinceUncheckedCreateInput) | (Without<...> & ProvinceCreateInput)'.
+src/services/satusehatMasterDataService.ts(100,22): error TS18046: 'data' is of type 'unknown'.
+src/services/satusehatMasterDataService.ts(104,22): error TS2339: Property 'city' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(108,22): error TS2339: Property 'city' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(115,26): error TS2339: Property 'code' does not exist on type 'GetResult<{ id: string; name: string; }, unknown> & {}'.
+src/services/satusehatMasterDataService.ts(125,24): error TS2339: Property 'city' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(180,25): error TS18046: 'data' is of type 'unknown'.
+src/services/satusehatMasterDataService.ts(185,20): error TS2353: Object literal may only specify known properties, and 'city' does not exist in type 'DistrictWhereInput'.
+src/services/satusehatMasterDataService.ts(192,35): error TS2339: Property 'city' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(206,22): error TS2353: Object literal may only specify known properties, and 'code' does not exist in type 'DistrictWhereUniqueInput'.
+src/services/satusehatMasterDataService.ts(209,15): error TS2353: Object literal may only specify known properties, and 'cityId' does not exist in type '(Without<DistrictUpdateInput, DistrictUncheckedUpdateInput> & DistrictUncheckedUpdateInput) | (Without<...> & DistrictUpdateInput)'.
+src/services/satusehatMasterDataService.ts(212,15): error TS2353: Object literal may only specify known properties, and 'code' does not exist in type '(Without<DistrictCreateInput, DistrictUncheckedCreateInput> & DistrictUncheckedCreateInput) | (Without<...> & DistrictCreateInput)'.
+src/services/satusehatMasterDataService.ts(260,24): error TS18046: 'data' is of type 'unknown'.
+src/services/satusehatMasterDataService.ts(265,32): error TS2353: Object literal may only specify known properties, and 'code' does not exist in type '(Without<DistrictRelationFilter, DistrictWhereInput> & DistrictWhereInput) | (Without<DistrictWhereInput, DistrictRelationFilter> & DistrictRelationFilter)'.
+src/services/satusehatMasterDataService.ts(275,26): error TS2339: Property 'code' does not exist on type 'GetResult<{ id: string; regencyId: string; name: string; }, unknown> & {}'.
+src/services/satusehatMasterDataService.ts(286,22): error TS2353: Object literal may only specify known properties, and 'code' does not exist in type 'VillageWhereUniqueInput'.
+src/services/satusehatMasterDataService.ts(292,15): error TS2353: Object literal may only specify known properties, and 'code' does not exist in type 'Without<VillageCreateInput, VillageUncheckedCreateInput> & VillageUncheckedCreateInput'.
+src/services/satusehatMasterDataService.ts(335,29): error TS18046: 'data' is of type 'unknown'.
+src/services/satusehatMasterDataService.ts(338,20): error TS2339: Property 'practitioner' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(341,40): error TS2339: Property 'practitionerRole' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(364,22): error TS2339: Property 'practitioner' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(423,23): error TS18046: 'data' is of type 'unknown'.
+src/services/satusehatMasterDataService.ts(426,20): error TS2339: Property 'kFAComponent' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(433,22): error TS2339: Property 'kFAComponent' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(490,27): error TS18046: 'data' is of type 'unknown'.
+src/services/satusehatMasterDataService.ts(493,20): error TS2339: Property 'kPTLProduct' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(500,22): error TS2339: Property 'kPTLProduct' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(549,27): error TS2339: Property 'city' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(565,18): error TS2353: Object literal may only specify known properties, and 'city' does not exist in type 'DistrictWhereInput'.
+src/services/satusehatMasterDataService.ts(580,30): error TS2353: Object literal may only specify known properties, and 'code' does not exist in type '(Without<DistrictRelationFilter, DistrictWhereInput> & DistrictWhereInput) | (Without<DistrictWhereInput, DistrictRelationFilter> & DistrictRelationFilter)'.
+src/services/satusehatMasterDataService.ts(594,27): error TS2339: Property 'practitioner' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(611,27): error TS2339: Property 'kFAComponent' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/satusehatMasterDataService.ts(625,27): error TS2339: Property 'kPTLProduct' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/shiftService.ts(1,24): error TS2305: Module '"@prisma/client"' has no exported member 'Shift'.
+src/services/shiftService.ts(38,27): error TS2339: Property 'shift' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/shiftService.ts(50,27): error TS2339: Property 'shift' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/shiftService.ts(60,27): error TS2339: Property 'shift' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/shiftService.ts(83,27): error TS2339: Property 'shift' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/shiftService.ts(107,27): error TS2339: Property 'shift' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/services/supporting-services.service.ts(1,40): error TS2305: Module '"@prisma/client"' has no exported member 'Kamar'.
+src/services/supporting-services.service.ts(1,47): error TS2724: '"@prisma/client"' has no exported member named 'InpatientStay'. Did you mean 'Inpatient'?
+src/services/userService.ts(2,20): error TS2307: Cannot find module 'bcryptjs' or its corresponding type declarations.
+src/services/userService.ts(152,7): error TS2322: Type '{ password: string; username: string; email: string; role: string; }' is not assignable to type '(Without<UserCreateInput, UserUncheckedCreateInput> & UserUncheckedCreateInput) | (Without<...> & UserCreateInput)'.
+  Type '{ password: string; username: string; email: string; role: string; }' is not assignable to type 'Without<UserUncheckedCreateInput, UserCreateInput> & UserCreateInput'.
+    Property 'fullName' is missing in type '{ password: string; username: string; email: string; role: string; }' but required in type 'UserCreateInput'.
+src/utils/auditTrail.ts(2,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?
+src/utils/auditTrail.ts(20,18): error TS2339: Property 'auditLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/utils/auditTrail.ts(60,31): error TS2339: Property 'auditLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/utils/auditTrail.ts(72,32): error TS2339: Property 'auditLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/utils/auditTrail.ts(119,31): error TS2339: Property 'auditLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/utils/auditTrail.ts(130,32): error TS2339: Property 'auditLog' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation | undefined, DefaultArgs>'.
+src/utils/cache.ts(2,8): error TS2613: Module '"/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' has no default export. Did you mean to use 'import { logger } from "/Users/jejenjaenudin/Documents/SIMRSZEN/backend/src/utils/logger"' instead?

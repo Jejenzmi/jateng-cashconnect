@@ -1,0 +1,2576 @@
+import { useState, useCallback, useEffect } from "react";
+import { motion, AnimatePresence, type Easing } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { 
+  ChevronLeft, 
+  ChevronRight, 
+  Home, 
+  Play, 
+  Pause, 
+  Maximize2, 
+  Minimize2,
+  Menu,
+  X
+} from "lucide-react";
+import rsudLogo from "@/assets/logo-simrs-zen.png";
+
+// Animation variants
+const easeOut: Easing = [0.22, 1, 0.36, 1];
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: easeOut }
+  })
+};
+
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -40 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: { delay: i * 0.1, duration: 0.6, ease: easeOut }
+  })
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    scale: 1,
+    transition: { delay: i * 0.1, duration: 0.5, ease: easeOut }
+  })
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08, delayChildren: 0.2 }
+  }
+};
+
+interface Slide {
+  id: number;
+  title: string;
+  content: React.ReactNode;
+}
+
+const _rawSlides: Slide[] = [
+  {
+    id: 1,
+    title: "Cover",
+    content: (
+      <div className="relative flex flex-col items-center justify-center min-h-full px-8 py-12 overflow-hidden">
+        {/* Animated background elements */}
+        <motion.div
+          className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/20 to-transparent blur-3xl"
+          animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-blue-500/10 to-transparent blur-3xl"
+          animate={{ scale: [1.2, 1, 1.2], rotate: [0, -90, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 text-center max-w-4xl">
+          <motion.img 
+            src={rsudLogo} 
+            alt="RSUD Dr. Moewardi" 
+            className="h-12 md:h-16 mx-auto mb-12"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          />
+          
+          <motion.p 
+            className="text-xs text-slate-400 tracking-[0.4em] uppercase mb-6"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+          >
+            Proposal Penawaran
+          </motion.p>
+          
+          <motion.h1 
+            className="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent leading-tight mb-8"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={2}
+          >
+            Sistem Informasi<br />Manajemen Rumah Sakit
+          </motion.h1>
+          
+          <motion.div 
+            className="flex justify-center gap-4 mb-8"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+          >
+            <span className="px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">SATU SEHAT Ready</span>
+            <span className="px-4 py-2 rounded-full bg-blue-500/10 text-blue-600 text-sm font-medium">BPJS Integrated</span>
+            <span className="px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-600 text-sm font-medium">Cloud Native</span>
+          </motion.div>
+          
+          <motion.div 
+            className="mt-16 pt-8 border-t border-slate-200"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={4}
+          >
+            <p className="text-xs text-slate-400 mb-2">Diajukan kepada</p>
+            <p className="text-xl font-semibold text-slate-800">RSUD Dr. Moewardi Surakarta</p>
+            <p className="text-sm text-slate-400 mt-3">Februari 2026</p>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 2,
+    title: "Tentang Kami",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-12 overflow-hidden">
+        <motion.div
+          className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-primary/10 to-transparent blur-3xl"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <motion.div variants={fadeInLeft} initial="hidden" animate="visible">
+            <p className="text-xs text-primary tracking-[0.3em] uppercase mb-2 font-semibold">01 — Pendahuluan</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">
+              Tentang <span className="text-primary">SIMRS</span> RSUD Dr. Moewardi
+            </h2>
+            <motion.div 
+              className="w-20 h-1 bg-gradient-to-r from-primary to-blue-500 rounded-full mb-8"
+              initial={{ width: 0 }}
+              animate={{ width: 80 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            />
+          </motion.div>
+          
+          <div className="grid md:grid-cols-5 gap-10">
+            <motion.div 
+              className="md:col-span-3"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.p variants={fadeInUp} className="text-lg text-slate-600 leading-relaxed mb-6">
+                <strong className="text-slate-900">SIMRS RSUD Dr. Moewardi</strong> adalah sistem informasi manajemen rumah sakit generasi terbaru yang dikembangkan dengan pendekatan <span className="text-primary font-semibold">cloud-native</span> dan <span className="text-primary font-semibold">user-centric design</span>.
+              </motion.p>
+              <motion.p variants={fadeInUp} className="text-slate-600 leading-relaxed mb-6">
+                Dirancang khusus untuk memenuhi kebutuhan rumah sakit di Indonesia dengan kepatuhan penuh terhadap regulasi Kemenkes RI, standar interoperabilitas SATU SEHAT (HL7 FHIR), dan integrasi BPJS Kesehatan.
+              </motion.p>
+            </motion.div>
+            
+            <motion.div 
+              className="md:col-span-2 space-y-4"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible"
+            >
+              {[
+                { value: "100%", label: "Cloud-Based", color: "from-primary to-blue-500" },
+                { value: "24/7", label: "Support", color: "from-blue-500 to-cyan-500" },
+                { value: "99.9%", label: "Uptime SLA", color: "from-cyan-500 to-emerald-500" },
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  variants={scaleIn}
+                  custom={idx}
+                  className="relative overflow-hidden rounded-2xl p-6 bg-white border border-slate-100 shadow-lg shadow-slate-100/50 group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500"
+                  whileHover={{ scale: 1.02, y: -4 }}
+                >
+                  <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${item.color}`} />
+                  <p className={`text-3xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>{item.value}</p>
+                  <p className="text-sm text-slate-500 mt-1">{item.label}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 3,
+    title: "Keunggulan",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-12 overflow-hidden">
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-to-r from-primary/5 via-blue-500/5 to-cyan-500/5 blur-3xl"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-12">
+            <p className="text-xs text-primary tracking-[0.3em] uppercase mb-2 font-semibold">02 — Value Proposition</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
+              Mengapa Memilih <span className="text-primary">SIMRS ZEN</span>?
+            </h2>
+          </motion.div>
+          
+          <motion.div 
+            className="grid md:grid-cols-3 gap-6"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {[
+              { icon: "🏥", title: "Multi Tipe Faskes", desc: "Fleksibel untuk RS Tipe A, B, C, D maupun Klinik/FKTP — modul otomatis menyesuaikan", gradient: "from-primary to-blue-500" },
+              { icon: "⚡", title: "Performa Tinggi", desc: "Response time <200ms untuk ribuan transaksi harian", gradient: "from-amber-400 to-orange-500" },
+              { icon: "🔗", title: "Terintegrasi", desc: "Native dengan SATU SEHAT, BPJS, dan sistem eksternal", gradient: "from-cyan-400 to-blue-500" },
+              { icon: "🔒", title: "Enterprise Security", desc: "Enkripsi end-to-end, RBAC, dan audit trail lengkap", gradient: "from-emerald-400 to-teal-500" },
+              { icon: "☁️", title: "Zero Infrastructure", desc: "Tanpa investasi server, auto-scaling & backup otomatis", gradient: "from-blue-400 to-indigo-500" },
+              { icon: "📊", title: "Business Intelligence", desc: "Dashboard real-time dan laporan otomatis RL 1-5", gradient: "from-purple-400 to-pink-500" },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                variants={scaleIn}
+                custom={idx}
+                className="group relative overflow-hidden rounded-2xl p-6 bg-white border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500"
+                whileHover={{ y: -8 }}
+              >
+                <motion.div 
+                  className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+                <motion.span 
+                  className="text-4xl block mb-4"
+                  whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {item.icon}
+                </motion.span>
+                <h3 className="font-bold text-slate-900 mb-2 text-lg">{item.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 4,
+    title: "Modul",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-10 overflow-hidden">
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-8">
+            <p className="text-xs text-primary tracking-[0.3em] uppercase mb-2 font-semibold">03 — Ruang Lingkup</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+              Modul <span className="text-primary">Lengkap</span> & Terintegrasi
+            </h2>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            <motion.div 
+              variants={fadeInLeft}
+              initial="hidden"
+              animate="visible"
+              className="relative"
+            >
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-primary via-blue-500 to-cyan-500 rounded-full" />
+              <h3 className="text-sm font-bold text-primary uppercase tracking-wide mb-4 ml-4">Pelayanan Klinis</h3>
+              <motion.div className="space-y-2" variants={staggerContainer} initial="hidden" animate="visible">
+                {["Pendaftaran & Antrian Cerdas", "Rawat Jalan (Poliklinik)", "Rawat Inap", "IGD", "Kamar Operasi (IBS)", "ICU/NICU/PICU", "Hemodialisa", "Rehabilitasi Medik", "MCU", "Forensik", "Home Care", "Telemedicine"].map((item, idx) => (
+                  <motion.div 
+                    key={idx} 
+                    variants={fadeInUp}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-primary/20 transition-all group"
+                    whileHover={{ x: 8 }}
+                  >
+                    <span className="w-2 h-2 rounded-full bg-gradient-to-r from-primary to-blue-500 group-hover:scale-150 transition-transform" />
+                    <span className="text-sm text-slate-700">{item}</span>
+                    {(item === "Home Care" || item === "Telemedicine") && (
+                      <span className="ml-auto px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-600">NEW</span>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+            
+            <motion.div 
+              variants={fadeInLeft}
+              initial="hidden"
+              animate="visible"
+              custom={1}
+              className="relative"
+            >
+              <div className="absolute -left-4 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 via-teal-500 to-cyan-500 rounded-full" />
+              <h3 className="text-sm font-bold text-emerald-600 uppercase tracking-wide mb-4 ml-4">Penunjang & Manajemen</h3>
+              <motion.div className="space-y-2" variants={staggerContainer} initial="hidden" animate="visible">
+                {["Farmasi & Apotek", "Laboratorium", "Radiologi & Imaging", "Bank Darah (UTDRS)", "Gizi & Nutrisi", "Rekam Medis Elektronik", "Billing & Kasir", "Inventori & Logistik", "Ambulance Center", "PR Approval Workflow", "SDM & Payroll", "Akuntansi"].map((item, idx) => (
+                  <motion.div 
+                    key={idx} 
+                    variants={fadeInUp}
+                    className="flex items-center gap-3 p-3 rounded-xl bg-white border border-slate-100 shadow-sm hover:shadow-md hover:border-emerald-500/20 transition-all group"
+                    whileHover={{ x: 8 }}
+                  >
+                    <span className="w-2 h-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 group-hover:scale-150 transition-transform" />
+                    <span className="text-sm text-slate-700">{item}</span>
+                    {(item === "Ambulance Center" || item === "PR Approval Workflow") && (
+                      <span className="ml-auto px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-600">NEW</span>
+                    )}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 5,
+    title: "SATU SEHAT",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-12 overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-teal-50">
+        <motion.div
+          className="absolute top-20 right-20 w-32 h-32 rounded-full border-4 border-emerald-200/50"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-20 left-20 w-24 h-24 rounded-full border-4 border-teal-200/50"
+          animate={{ scale: [1.2, 1, 1.2], opacity: [0.6, 0.3, 0.6] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        />
+        
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-10">
+            <p className="text-xs text-emerald-600 tracking-[0.3em] uppercase mb-2 font-semibold">08 — Interoperabilitas</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
+              Integrasi <span className="text-emerald-600">SATU SEHAT</span>
+            </h2>
+            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
+              Terintegrasi penuh dengan platform Kemenkes RI menggunakan standar HL7 FHIR R4
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {[
+              { resource: "Patient", desc: "Data Pasien", icon: "👤" },
+              { resource: "Encounter", desc: "Kunjungan", icon: "🏥" },
+              { resource: "Condition", desc: "Diagnosis", icon: "📋" },
+              { resource: "Observation", desc: "Vital Signs", icon: "💓" },
+              { resource: "Medication", desc: "Obat", icon: "💊" },
+              { resource: "Procedure", desc: "Tindakan", icon: "🔬" },
+              { resource: "Practitioner", desc: "Nakes", icon: "👨‍⚕️" },
+              { resource: "Organization", desc: "Faskes", icon: "🏢" },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                variants={scaleIn}
+                custom={idx}
+                className="relative overflow-hidden rounded-2xl p-5 bg-white border border-emerald-100 shadow-lg text-center group"
+                whileHover={{ y: -6, scale: 1.02 }}
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 opacity-0 group-hover:opacity-100 transition-opacity"
+                />
+                <motion.span 
+                  className="text-3xl block mb-2"
+                  whileHover={{ scale: 1.3 }}
+                >
+                  {item.icon}
+                </motion.span>
+                <p className="font-bold text-slate-900">{item.resource}</p>
+                <p className="text-xs text-slate-400">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 6,
+    title: "BPJS",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-12 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+        <div className="relative z-10 max-w-5xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-10">
+            <p className="text-xs text-blue-600 tracking-[0.3em] uppercase mb-2 font-semibold">09 — Integrasi</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
+              Integrasi <span className="text-blue-600">BPJS</span> Kesehatan
+            </h2>
+          </motion.div>
+          
+          <motion.div 
+            className="grid md:grid-cols-2 gap-6"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {[
+              { 
+                code: "V", 
+                title: "VClaim Service", 
+                items: ["Cek kepesertaan & eligibilitas", "Generate SEP otomatis", "Data rujukan FKTP", "Monitoring status klaim"],
+                gradient: "from-blue-500 to-indigo-500"
+              },
+              { 
+                code: "E", 
+                title: "E-Claim / INA-CBG", 
+                items: ["Grouper INA-CBG terintegrasi", "Pengajuan klaim digital", "Tracking verifikasi", "Analisis potensi dispute"],
+                gradient: "from-indigo-500 to-purple-500"
+              },
+              { 
+                code: "A", 
+                title: "Antrean Online", 
+                items: ["Integrasi Mobile JKN", "Push jadwal & notifikasi", "Reschedule otomatis"],
+                gradient: "from-purple-500 to-pink-500"
+              },
+              { 
+                code: "P", 
+                title: "Aplicares", 
+                items: ["Monitoring tempat tidur", "Update ketersediaan realtime", "Sinkronisasi otomatis"],
+                gradient: "from-pink-500 to-rose-500"
+              },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                variants={scaleIn}
+                custom={idx}
+                className="relative overflow-hidden rounded-2xl p-6 bg-white border border-slate-100 shadow-xl group"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${item.gradient}`} />
+                <div className="flex items-center gap-4 mb-4">
+                  <motion.div 
+                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white font-bold text-xl shadow-lg`}
+                    whileHover={{ rotate: [0, -5, 5, 0], scale: 1.1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {item.code}
+                  </motion.div>
+                  <h3 className="font-bold text-slate-900 text-lg">{item.title}</h3>
+                </div>
+                <ul className="space-y-2">
+                  {item.items.map((i, iIdx) => (
+                    <motion.li 
+                      key={iIdx} 
+                      className="flex items-center gap-2 text-sm text-slate-600"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 + iIdx * 0.1 }}
+                    >
+                      <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.gradient}`} />
+                      {i}
+                    </motion.li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 7,
+    title: "Arsitektur",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-12 overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-primary/20 to-blue-500/20 blur-3xl"
+          animate={{ scale: [1, 1.1, 1], rotate: 360 }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 max-w-5xl mx-auto text-white">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-10">
+            <p className="text-xs text-primary tracking-[0.3em] uppercase mb-2 font-semibold">07 — Infrastruktur</p>
+            <h2 className="text-3xl md:text-5xl font-bold">
+              Arsitektur & <span className="text-primary">Keamanan</span>
+            </h2>
+          </motion.div>
+          
+          <motion.div 
+            className="grid md:grid-cols-3 gap-6 mb-10"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {[
+              { icon: "☁️", title: "Cloud Native", desc: "Auto-scaling, load balancing" },
+              { icon: "🔐", title: "Security First", desc: "AES-256, TLS 1.3" },
+              { icon: "🔄", title: "High Availability", desc: "99.9% uptime, DR ready" },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                variants={scaleIn}
+                custom={idx}
+                className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur border border-white/10 hover:bg-white/10 transition-all"
+                whileHover={{ y: -8 }}
+              >
+                <motion.span 
+                  className="text-5xl block mb-4"
+                  animate={{ y: [0, -8, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: idx * 0.3 }}
+                >
+                  {item.icon}
+                </motion.span>
+                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-400">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          <motion.div 
+            className="rounded-2xl bg-white/5 backdrop-blur border border-white/10 p-8"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+          >
+            <h4 className="font-bold mb-6 text-primary">Spesifikasi Teknis</h4>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { label: "Database", value: "PostgreSQL 15" },
+                { label: "API", value: "RESTful + GraphQL" },
+                { label: "Auth", value: "OAuth 2.0 + JWT" },
+                { label: "Backup", value: "Daily + Point-in-time" },
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx} 
+                  className="flex justify-between border-b border-white/10 pb-3"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.5 + idx * 0.1 }}
+                >
+                  <span className="text-slate-400">{item.label}</span>
+                  <span className="font-medium">{item.value}</span>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 8,
+    title: "Migrasi & Implementasi",
+    content: (
+      <div className="relative min-h-full px-6 md:px-12 py-8 overflow-hidden">
+        {/* Animated background */}
+        <motion.div
+          className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-primary/10 via-blue-500/5 to-transparent blur-3xl"
+          animate={{ rotate: 360, scale: [1, 1.1, 1] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-6">
+            <p className="text-xs text-primary tracking-[0.3em] uppercase mb-2 font-semibold">14 — Metodologi Migrasi</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+              Migrasi dari SIMRS Existing ke <span className="text-primary">SIMRS ZEN</span>
+            </h2>
+            <p className="text-slate-500 mt-2 text-sm">Pendekatan bertahap 5 bulan untuk transisi mulus dari sistem legacy ke platform cloud modern</p>
+          </motion.div>
+          
+          {/* Migration Overview */}
+          <motion.div 
+            className="mb-6 p-4 rounded-2xl bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="flex items-start gap-3">
+              <span className="text-2xl">🔄</span>
+              <div>
+                <h4 className="font-bold text-slate-900 text-sm mb-1">Skema Migrasi dari SIMRS Existing</h4>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Proses migrasi dilakukan secara <strong>bertahap dan paralel (parallel run)</strong> — sistem lama tetap berjalan selama masa transisi sehingga operasional RS tidak terganggu. 
+                  Data historis pasien, rekam medis, inventori obat, dan data keuangan akan di-extract, di-cleansing, dan di-mapping ke struktur data SIMRS ZEN yang sudah mengacu standar nasional (NIK, ICD-10, kode obat Kemenkes).
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Timeline Visual Bar */}
+          <motion.div 
+            className="relative mb-6"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="flex justify-between items-center mb-3">
+              {["Bulan 1", "Bulan 2", "Bulan 3", "Bulan 4", "Bulan 5"].map((month, idx) => (
+                <motion.div 
+                  key={idx}
+                  className="text-center flex-1"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + idx * 0.1 }}
+                >
+                  <div className="relative">
+                    <motion.div 
+                      className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-blue-500 flex items-center justify-center text-white font-bold text-sm mx-auto shadow-lg"
+                      whileHover={{ scale: 1.15 }}
+                    >
+                      {idx + 1}
+                    </motion.div>
+                    <p className="text-xs text-slate-500 mt-2 font-medium">{month}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div 
+              className="h-2 rounded-full bg-slate-100 overflow-hidden"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: 0.5, duration: 0.8 }}
+            >
+              <motion.div 
+                className="h-full bg-gradient-to-r from-amber-400 via-primary via-blue-500 via-indigo-500 to-purple-500"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ delay: 0.8, duration: 1.5, ease: "easeOut" }}
+              />
+            </motion.div>
+          </motion.div>
+          
+          {/* Phase Cards */}
+          <motion.div 
+            className="grid md:grid-cols-5 gap-3"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {[
+              { 
+                phase: "01", 
+                title: "Assessment & Planning", 
+                duration: "Minggu 1-4", 
+                month: "Bulan 1",
+                items: ["Audit SIMRS existing (database, modul, alur kerja)", "Gap analysis: fitur lama vs SIMRS ZEN", "Pemetaan data master (Pasien, Dokter, Obat, Tarif)", "Penyusunan Project Charter & Risk Assessment", "Identifikasi customisasi yang dibutuhkan"],
+                color: "from-amber-400 to-orange-500",
+                deliverables: "Dokumen BRD & TRD"
+              },
+              { 
+                phase: "02", 
+                title: "Setup & Konfigurasi", 
+                duration: "Minggu 5-8", 
+                month: "Bulan 2",
+                items: ["Provisioning cloud infrastructure", "Konfigurasi modul sesuai kebutuhan RS", "Setup API bridging ke SATU SEHAT & BPJS", "Integrasi hardware (printer, barcode, antrian)", "Security & role-based access setup"],
+                color: "from-primary to-blue-500",
+                deliverables: "Environment Ready"
+              },
+              { 
+                phase: "03", 
+                title: "Migrasi Data", 
+                duration: "Minggu 9-12", 
+                month: "Bulan 3",
+                items: ["Extract data dari database SIMRS lama", "Data cleansing & normalisasi format", "Mapping field ke standar nasional (ICD-10, NIK)", "Validasi integritas data & uji coba import", "Migrasi master data: Pasien, Obat, Tarif, Dokter"],
+                color: "from-blue-500 to-indigo-500",
+                deliverables: "Data Validated"
+              },
+              { 
+                phase: "04", 
+                title: "UAT & Training", 
+                duration: "Minggu 13-16", 
+                month: "Bulan 4",
+                items: ["User Acceptance Testing per modul", "Perbaikan bug & penyesuaian alur kerja", "Training Admin IT (konfigurasi & troubleshoot)", "Training End User (dokter, perawat, kasir, dll)", "Finalisasi SOP operasional baru"],
+                color: "from-indigo-500 to-purple-500",
+                deliverables: "User Certified"
+              },
+              { 
+                phase: "05", 
+                title: "Go-Live & Hypercare", 
+                duration: "Minggu 17-20", 
+                month: "Bulan 5",
+                items: ["Parallel run: SIMRS lama & baru bersamaan", "Cutover: peralihan penuh ke SIMRS ZEN", "Dukungan on-site 24/7 selama 2 minggu", "Monitoring performa & stabilitas sistem", "Serah terima & dokumentasi final"],
+                color: "from-purple-500 to-pink-500",
+                deliverables: "System Live"
+              },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                variants={scaleIn}
+                custom={idx}
+                className="group relative"
+              >
+                <motion.div 
+                  className="h-full rounded-2xl p-4 bg-white border border-slate-100 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                >
+                  {/* Gradient overlay on hover */}
+                  <motion.div 
+                    className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  />
+                  
+                  {/* Phase number */}
+                  <motion.div 
+                    className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white font-bold text-sm shadow-lg mb-3`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    {item.phase}
+                  </motion.div>
+                  
+                  <h3 className="font-bold text-slate-900 text-sm mb-1 leading-tight">{item.title}</h3>
+                  <p className="text-xs text-slate-400 mb-3">{item.duration}</p>
+                  
+                  {/* Items list */}
+                  <div className="space-y-1.5 mb-3">
+                    {item.items.map((i, iIdx) => (
+                      <motion.div 
+                        key={iIdx} 
+                        className="flex items-center gap-2"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.5 + idx * 0.1 + iIdx * 0.05 }}
+                      >
+                        <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.color} flex-shrink-0`} />
+                        <span className="text-xs text-slate-600">{i}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  {/* Deliverable badge */}
+                  <motion.div 
+                    className={`inline-block px-3 py-1.5 rounded-full bg-gradient-to-r ${item.color} text-white text-xs font-medium shadow-md`}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    ✓ {item.deliverables}
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+          
+          {/* Total Duration Badge */}
+          <motion.div 
+            className="flex justify-center mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+          >
+            <motion.div 
+              className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-slate-900 to-slate-700 text-white shadow-xl"
+              whileHover={{ scale: 1.02 }}
+            >
+              <span className="text-2xl">🚀</span>
+              <div>
+                <p className="text-xs text-slate-300">Total Durasi</p>
+                <p className="font-bold">5 Bulan (20 Minggu)</p>
+              </div>
+              <div className="w-px h-8 bg-white/20" />
+              <div>
+                <p className="text-xs text-slate-300">Start</p>
+                <p className="font-bold">Maret 2026</p>
+              </div>
+              <div className="w-px h-8 bg-white/20" />
+              <div>
+                <p className="text-xs text-slate-300">Go-Live</p>
+                <p className="font-bold text-emerald-400">Juli 2026</p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Mengapa 5 Bulan Section */}
+          <motion.div 
+            className="mt-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 p-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4 }}
+          >
+            <h4 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
+              <span className="text-lg">💡</span> Mengapa Harus 5 Bulan?
+            </h4>
+            <div className="grid md:grid-cols-2 gap-3">
+              {[
+                { icon: "📋", title: "Regulasi & Birokrasi", desc: "Approval integrasi BPJS dan SATU SEHAT membutuhkan proses administratif yang tidak bisa dipercepat" },
+                { icon: "🛡️", title: "Keamanan Data", desc: "Migrasi terburu-buru berisiko data hilang/korup — berpotensi gagal klaim BPJS & pelaporan Kemenkes" },
+                { icon: "👥", title: "Faktor SDM", desc: "21 role × puluhan user perlu dilatih bertahap. Parallel run wajib untuk memastikan zero data loss" },
+                { icon: "✅", title: "Best Practice Industri", desc: "Standar migrasi SIMRS di Indonesia adalah 4-6 bulan — selaras dengan siklus Renstra daerah" },
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx} 
+                  className="flex items-start gap-2.5 bg-white/70 rounded-xl p-3"
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.5 + idx * 0.1 }}
+                >
+                  <span className="text-lg flex-shrink-0">{item.icon}</span>
+                  <div>
+                    <p className="font-semibold text-slate-800 text-xs">{item.title}</p>
+                    <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 9,
+    title: "SLA & Support",
+    content: (
+      <div className="relative min-h-full px-6 md:px-12 py-8 overflow-hidden">
+        <motion.div
+          className="absolute -bottom-20 -left-20 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-blue-500/10 to-transparent blur-3xl"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-6">
+            <p className="text-xs text-blue-600 tracking-[0.3em] uppercase mb-2 font-semibold">15 — Jaminan Layanan</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+              SLA & <span className="text-blue-600">Dukungan Teknis</span>
+            </h2>
+            <p className="text-slate-500 mt-2 text-sm">Komitmen kami untuk kelangsungan operasional rumah sakit</p>
+          </motion.div>
+          
+          {/* SLA Cards */}
+          <div className="grid md:grid-cols-4 gap-4 mb-6">
+            {[
+              { icon: "🛡️", value: "99.9%", label: "Uptime SLA", desc: "Jaminan ketersediaan sistem" },
+              { icon: "⚡", value: "<15 menit", label: "Response Time", desc: "Untuk issue critical" },
+              { icon: "📞", value: "24/7", label: "Support Hotline", desc: "Tim standby sepanjang waktu" },
+              { icon: "👨‍💼", value: "Dedicated", label: "Account Manager", desc: "PIC khusus untuk RS Anda" },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                className="rounded-2xl p-4 bg-white border border-slate-200 shadow-lg text-center"
+                variants={scaleIn}
+                initial="hidden"
+                animate="visible"
+                custom={idx}
+                whileHover={{ y: -4 }}
+              >
+                <span className="text-3xl block mb-2">{item.icon}</span>
+                <p className="text-2xl font-bold text-blue-600">{item.value}</p>
+                <p className="font-semibold text-slate-900 text-sm">{item.label}</p>
+                <p className="text-xs text-slate-500 mt-1">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Support Levels */}
+          <motion.div 
+            className="rounded-2xl overflow-hidden border border-slate-200 shadow-lg bg-white mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <div className="px-5 py-3 bg-gradient-to-r from-blue-600 to-cyan-600">
+              <h4 className="font-bold text-white text-sm">🎯 Tingkat Prioritas & Response Time</h4>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-slate-50">
+                  <tr>
+                    <th className="px-4 py-2 text-left font-semibold text-slate-600 border-b">Prioritas</th>
+                    <th className="px-4 py-2 text-left font-semibold text-slate-600 border-b">Deskripsi</th>
+                    <th className="px-4 py-2 text-left font-semibold text-slate-600 border-b">Response</th>
+                    <th className="px-4 py-2 text-left font-semibold text-slate-600 border-b">Resolusi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { level: "🔴 Critical", desc: "Sistem down total", response: "<15 menit", resolve: "<4 jam" },
+                    { level: "🟠 High", desc: "Modul utama terganggu", response: "<30 menit", resolve: "<8 jam" },
+                    { level: "🟡 Medium", desc: "Fitur minor bermasalah", response: "<2 jam", resolve: "<24 jam" },
+                    { level: "🟢 Low", desc: "Pertanyaan & permintaan", response: "<4 jam", resolve: "<48 jam" },
+                  ].map((item, idx) => (
+                    <tr key={idx} className="border-b hover:bg-slate-50">
+                      <td className="px-4 py-2 font-medium">{item.level}</td>
+                      <td className="px-4 py-2 text-slate-600">{item.desc}</td>
+                      <td className="px-4 py-2 font-semibold text-blue-600">{item.response}</td>
+                      <td className="px-4 py-2 font-semibold text-emerald-600">{item.resolve}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </motion.div>
+
+          {/* Additional Support Features */}
+          <div className="grid md:grid-cols-3 gap-3">
+            {[
+              { icon: "📚", title: "Knowledge Base", desc: "Dokumentasi lengkap & video tutorial" },
+              { icon: "🔄", title: "Update Regulasi", desc: "Patch otomatis saat ada perubahan regulasi Kemenkes/BPJS" },
+              { icon: "📊", title: "Laporan Bulanan", desc: "Report performa sistem & statistik penggunaan" },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                className="rounded-xl p-3 bg-blue-50 border border-blue-100 flex items-center gap-3"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 + idx * 0.1 }}
+              >
+                <span className="text-2xl">{item.icon}</span>
+                <div>
+                  <p className="font-semibold text-slate-900 text-sm">{item.title}</p>
+                  <p className="text-xs text-slate-600">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 10,
+    title: "Kiosk & Telemedicine",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-12 overflow-hidden bg-gradient-to-br from-violet-50 via-white to-cyan-50">
+        <motion.div
+          className="absolute top-20 right-20 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-violet-500/10 to-transparent blur-3xl"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+        />
+        <motion.div
+          className="absolute bottom-10 left-10 w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-cyan-500/10 to-transparent blur-3xl"
+          animate={{ rotate: -360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-10">
+            <p className="text-xs text-violet-600 tracking-[0.3em] uppercase mb-2 font-semibold">04 — Inovasi Digital</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
+              <span className="text-violet-600">Kiosk</span> Mandiri & <span className="text-cyan-600">Telemedicine</span>
+            </h2>
+            <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
+              Dua fitur unggulan yang meningkatkan pengalaman pasien dan efisiensi pelayanan rumah sakit
+            </p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Kiosk Section */}
+            <motion.div 
+              className="rounded-2xl p-6 bg-white border border-violet-100 shadow-xl overflow-hidden group"
+              variants={scaleIn}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ y: -4 }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <motion.div 
+                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-3xl shadow-lg"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                >
+                  🖥️
+                </motion.div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Kiosk Mandiri</h3>
+                  <p className="text-xs text-violet-500 font-medium">Self-Service Check-in</p>
+                </div>
+              </div>
+              
+              <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                Mesin pendaftaran mandiri berbasis layar sentuh yang memungkinkan pasien mendaftar dan mengambil antrean tanpa harus antri di loket pendaftaran.
+              </p>
+              
+              <div className="space-y-2 mb-5">
+                {[
+                  { icon: "🔍", text: "Pencarian pasien via NIK, No. RM, atau Telepon" },
+                  { icon: "📋", text: "Pendaftaran antrean poli & penunjang otomatis" },
+                  { icon: "🎫", text: "Cetak tiket antrean dengan nomor & estimasi waktu" },
+                  { icon: "⌨️", text: "Keyboard virtual untuk layar sentuh (touchscreen)" },
+                  { icon: "⏱️", text: "Auto-reset setelah 60 detik idle (keamanan)" },
+                  { icon: "📡", text: "Sinkronisasi real-time dengan sistem antrian utama" },
+                ].map((item, idx) => (
+                  <motion.div 
+                    key={idx} 
+                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-violet-50 transition-colors"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 + idx * 0.08 }}
+                  >
+                    <span className="text-lg">{item.icon}</span>
+                    <span className="text-xs text-slate-700">{item.text}</span>
+                  </motion.div>
+                ))}
+              </div>
+              
+              <motion.div 
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 text-white text-xs font-medium text-center shadow-md"
+                whileHover={{ scale: 1.02 }}
+              >
+                ✓ Kurangi antrian loket hingga 70%
+              </motion.div>
+            </motion.div>
+
+            {/* Telemedicine Section */}
+            <motion.div 
+              className="rounded-2xl p-6 bg-white border border-cyan-100 shadow-xl overflow-hidden group"
+              variants={scaleIn}
+              initial="hidden"
+              animate="visible"
+              custom={1}
+              whileHover={{ y: -4 }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <motion.div 
+                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-3xl shadow-lg"
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                >
+                  📹
+                </motion.div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Telemedicine</h3>
+                  <p className="text-xs text-cyan-500 font-medium">Video Consultation</p>
+                </div>
+              </div>
+              
+              <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+                Layanan konsultasi jarak jauh melalui video call yang menghubungkan dokter dan pasien secara langsung dari mana saja, kapan saja.
+              </p>
+              
+              <div className="space-y-2 mb-5">
+                {[
+                  { icon: "🎥", text: "Video call HD dokter-pasien (WebRTC P2P)" },
+                  { icon: "🎤", text: "Kontrol audio & video (mute, camera on/off)" },
+                  { icon: "📝", text: "Catatan konsultasi terintegrasi rekam medis" },
+                  { icon: "💊", text: "E-Prescription langsung dari sesi telemedicine" },
+                  { icon: "📅", text: "Booking jadwal online & reminder otomatis" },
+                  { icon: "🔒", text: "Enkripsi end-to-end untuk privasi pasien" },
+                ].map((item, idx) => (
+                  <motion.div 
+                    key={idx} 
+                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-cyan-50 transition-colors"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 + idx * 0.08 }}
+                  >
+                    <span className="text-lg">{item.icon}</span>
+                    <span className="text-xs text-slate-700">{item.text}</span>
+                  </motion.div>
+                ))}
+              </div>
+              
+              <motion.div 
+                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-medium text-center shadow-md"
+                whileHover={{ scale: 1.02 }}
+              >
+                ✓ Jangkau pasien di seluruh Indonesia
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 11,
+    title: "Inovasi Digital",
+    content: (
+      <div className="relative flex flex-col items-center justify-center min-h-full px-8 py-12 overflow-hidden">
+        <motion.div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-cyan-500/5" animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 4, repeat: Infinity }} />
+        <div className="relative z-10 max-w-5xl w-full">
+          <motion.p className="text-xs text-slate-400 tracking-[0.4em] uppercase mb-4 text-center" variants={fadeInUp} initial="hidden" animate="visible">05 — Fitur Unggulan Terbaru</motion.p>
+          <motion.h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-8 text-center" variants={fadeInUp} initial="hidden" animate="visible" custom={1}>
+            <span className="text-indigo-600">Fitur Baru</span> — Home Care, Ambulance & <span className="text-cyan-600">Smart Tools</span>
+          </motion.h1>
+          <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4" variants={staggerContainer} initial="hidden" animate="visible">
+            {[
+              { icon: "🏠", title: "Home Care", desc: "Layanan kesehatan ke rumah pasien dengan penjadwalan, tracking status kunjungan, dan penugasan tenaga medis — terintegrasi database real-time.", color: "from-rose-500 to-pink-600", badge: "DB" },
+              { icon: "🚑", title: "Ambulance Center", desc: "Manajemen armada ambulans & dispatch darurat. Tracking status kendaraan, prioritas panggilan, dan auto-update ketersediaan.", color: "from-red-500 to-orange-600", badge: "DB" },
+              { icon: "✅", title: "PR Approval Workflow", desc: "Alur persetujuan pengadaan 3 level (Kepala Unit → Manajer Logistik → Direktur) dengan tracking status dan notifikasi otomatis.", color: "from-indigo-500 to-purple-600", badge: "DB" },
+              { icon: "🎨", title: "Dynamic Form Builder", desc: "Buat formulir EMR custom tanpa coding dalam <1 jam. Drag & drop field, template preset, ekspor PDF, dan pengaturan hak akses.", color: "from-violet-500 to-purple-600" },
+              { icon: "📊", title: "Dynamic Report Builder", desc: "Buat laporan custom dengan filtering dinamis. Pilih sumber data, kolom, filter, dan visualisasi (tabel/chart). Ekspor Excel & PDF.", color: "from-blue-500 to-cyan-600" },
+              { icon: "🖥️", title: "Smart Hospital Display", desc: "Layar informasi untuk lobby (antrian & promo), ward (status bed real-time), farmasi (antrian resep), dan jadwal dokter.", color: "from-emerald-500 to-teal-600" },
+              { icon: "🔗", title: "HL7 / DICOM / PACS", desc: "Integrasi standar imaging internasional. Koneksi PACS, RIS, LIS, DICOM Viewer, dan HL7 message routing terintegrasi.", color: "from-amber-500 to-orange-600" },
+            ].map((item, i) => (
+              <motion.div key={i} variants={scaleIn} custom={i} className="rounded-2xl bg-white shadow-lg border border-slate-100 p-5 hover:shadow-xl transition-shadow">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-2xl shadow-lg`}>{item.icon}</div>
+                  {"badge" in item && item.badge && (
+                    <span className="px-2 py-0.5 text-[10px] font-bold rounded-full bg-emerald-100 text-emerald-700">{item.badge}</span>
+                  )}
+                </div>
+                <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 12,
+    title: "Kepatuhan Regulasi",
+    content: (
+      <div className="relative min-h-full px-6 md:px-12 py-8 pb-20 overflow-hidden bg-gradient-to-br from-rose-50 via-white to-amber-50">
+        <motion.div
+          className="absolute top-10 right-10 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-rose-500/10 to-transparent blur-3xl"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-6">
+            <p className="text-xs text-rose-600 tracking-[0.3em] uppercase mb-2 font-semibold">10 — Kepatuhan Regulasi</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+              Kepatuhan <span className="text-rose-600">Regulasi</span> & Standar
+            </h2>
+            <p className="text-slate-500 mt-2 text-sm">Memenuhi seluruh regulasi nasional & internasional untuk operasional rumah sakit</p>
+          </motion.div>
+          
+          <motion.div 
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {[
+              {
+                icon: "🏛️",
+                title: "Kemenkes RI",
+                subtitle: "Permenkes & Standar Nasional",
+                items: [
+                  "Laporan RL 1.1 – RL 5.4 (otomatis)",
+                  "ASPAK (Aplikasi Sarana Prasarana Alkes)",
+                  "SISMADAK (Indikator Mutu Nasional)",
+                  "Standar Akreditasi SNARS Ed. 1.1",
+                  "Format Rekam Medis Elektronik (RME)",
+                  "Kode ICD-10 & ICD-9-CM terintegrasi"
+                ],
+                color: "from-rose-500 to-red-600",
+                borderColor: "border-rose-200"
+              },
+              {
+                icon: "🌐",
+                title: "SATU SEHAT",
+                subtitle: "Interoperabilitas HL7 FHIR R4",
+                items: [
+                  "11 Resource FHIR R4 (Patient, Encounter, dll.)",
+                  "OAuth 2.0 Authentication",
+                  "Bundle Composition untuk RME",
+                  "Sinkronisasi bi-directional",
+                  "Practitioner & Organization mapping",
+                  "Audit log setiap transaksi FHIR"
+                ],
+                color: "from-emerald-500 to-teal-600",
+                borderColor: "border-emerald-200"
+              },
+              {
+                icon: "💳",
+                title: "BPJS Kesehatan",
+                subtitle: "Bridging Sistem Lengkap",
+                items: [
+                  "VClaim (SEP, Eligibilitas, Rujukan)",
+                  "E-Claim / INA-CBG Grouper",
+                  "Antrean Online (Mobile JKN)",
+                  "iCare JKN (Monitoring Klaim)",
+                  "Aplicares (Ketersediaan TT)",
+                  "Enkripsi HMAC-SHA256 & AES-256"
+                ],
+                color: "from-blue-500 to-indigo-600",
+                borderColor: "border-blue-200"
+              },
+              {
+                icon: "🔒",
+                title: "UU PDP No. 27/2022",
+                subtitle: "Perlindungan Data Pribadi",
+                items: [
+                  "Row Level Security (RLS) pada 180+ tabel",
+                  "RBAC 21 peran (Role-Based Access Control)",
+                  "Audit trail seluruh aksi pengguna",
+                  "Enkripsi data sensitif (AES-256)",
+                  "Hak hapus data hanya untuk Admin",
+                  "Informed Consent digital terintegrasi"
+                ],
+                color: "from-amber-500 to-orange-600",
+                borderColor: "border-amber-200"
+              },
+              {
+                icon: "🌍",
+                title: "WHO & Standar Internasional",
+                subtitle: "Klasifikasi & Protokol Global",
+                items: [
+                  "ICD-10 (Diagnosis) — WHO Classification",
+                  "ICD-9-CM (Prosedur Medis)",
+                  "HL7 FHIR R4 (Interoperabilitas)",
+                  "DICOM (Medical Imaging)",
+                  "SNOMED CT compatible",
+                  "Patient Safety Goals (IPSG)"
+                ],
+                color: "from-violet-500 to-purple-600",
+                borderColor: "border-violet-200"
+              },
+              {
+                icon: "✅",
+                title: "Permenkes 24/2022",
+                subtitle: "Rekam Medis Elektronik",
+                items: [
+                  "Format SOAP standar (S/O/A/P)",
+                  "Tanda tangan digital dokter",
+                  "Retensi data sesuai ketentuan",
+                  "Hak akses berdasarkan peran klinis",
+                  "Integritas & keaslian data terjamin",
+                  "Backup & disaster recovery"
+                ],
+                color: "from-cyan-500 to-blue-600",
+                borderColor: "border-cyan-200"
+              },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                variants={scaleIn}
+                custom={idx}
+                className={`rounded-2xl p-5 bg-white border ${item.borderColor} shadow-lg hover:shadow-xl transition-all group overflow-hidden`}
+                whileHover={{ y: -4, scale: 1.01 }}
+              >
+                <motion.div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+                <div className="flex items-center gap-3 mb-3">
+                  <motion.div 
+                    className={`w-11 h-11 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-2xl shadow-lg`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                  >
+                    {item.icon}
+                  </motion.div>
+                  <div>
+                    <h3 className="font-bold text-slate-900 text-sm">{item.title}</h3>
+                    <p className="text-xs text-slate-400">{item.subtitle}</p>
+                  </div>
+                </div>
+                <div className="space-y-1.5">
+                  {item.items.map((i, iIdx) => (
+                    <motion.div 
+                      key={iIdx} 
+                      className="flex items-center gap-2"
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 + idx * 0.05 + iIdx * 0.04 }}
+                    >
+                      <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${item.color} flex-shrink-0`} />
+                      <span className="text-xs text-slate-600">{i}</span>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Compliance Badge */}
+          <motion.div 
+            className="mt-5 p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 text-white text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 }}
+          >
+            <p className="text-sm font-medium">
+              🛡️ SIMRS ZEN telah dirancang <strong>compliance-by-design</strong> — seluruh aspek regulasi terintegrasi sejak arsitektur awal, bukan ditambahkan kemudian.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 13,
+    title: "Migrasi MySQL/PHP",
+    content: (
+      <div className="relative flex flex-col min-h-full px-8 py-12 overflow-hidden">
+        <motion.div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 via-transparent to-blue-50/50" />
+        
+        <div className="relative z-10 max-w-6xl mx-auto w-full">
+          <motion.p 
+            className="text-xs text-slate-400 tracking-[0.3em] uppercase mb-2"
+            variants={fadeInUp} initial="hidden" animate="visible"
+          >
+            13 — Migrasi Sistem Legacy
+          </motion.p>
+          <motion.h2 
+            className="text-2xl md:text-3xl font-bold text-slate-900 mb-2"
+            variants={fadeInUp} initial="hidden" animate="visible" custom={1}
+          >
+            Migrasi dari <span className="text-primary">MySQL & PHP 5</span>
+          </motion.h2>
+          <motion.h2
+            className="text-2xl md:text-3xl font-bold text-slate-900 mb-2"
+            variants={fadeInUp} initial="hidden" animate="visible" custom={1}
+          >
+            21 Role Pengguna SIMRS ZEN
+          </motion.h2>
+          <motion.p 
+            className="text-sm text-slate-500 mb-6"
+            variants={fadeInUp} initial="hidden" animate="visible" custom={2}
+          >
+            Sistem legacy berbasis PHP 5 dan MySQL dapat dimigrasikan secara penuh ke arsitektur modern
+          </motion.p>
+
+          {/* Migration Flow */}
+          <motion.div 
+            className="flex flex-wrap items-center justify-center gap-3 mb-6"
+            variants={fadeInUp} initial="hidden" animate="visible" custom={3}
+          >
+            {[
+              { label: "MySQL Database", sub: "Legacy", icon: "🗄️", color: "from-orange-400 to-amber-500" },
+              { label: "Export CSV/Excel", sub: "Extract", icon: "📤", color: "from-slate-400 to-slate-500" },
+              { label: "Migration Tool", sub: "Transform", icon: "🔄", color: "from-primary to-blue-500" },
+              { label: "PostgreSQL Cloud", sub: "Load", icon: "☁️", color: "from-emerald-400 to-teal-500" },
+            ].map((step, idx) => (
+              <div key={idx} className="flex items-center gap-3">
+                <motion.div 
+                  className="text-center"
+                  whileHover={{ scale: 1.05, y: -4 }}
+                >
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center text-2xl shadow-lg mb-1`}>
+                    {step.icon}
+                  </div>
+                  <p className="text-xs font-bold text-slate-800">{step.label}</p>
+                  <p className="text-xs text-slate-400">{step.sub}</p>
+                </motion.div>
+                {idx < 3 && <span className="text-xl text-slate-300 font-bold">→</span>}
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Mapping Table */}
+          <motion.div 
+            className="grid md:grid-cols-2 gap-4 mb-6"
+            variants={staggerContainer} initial="hidden" animate="visible"
+          >
+            <motion.div variants={scaleIn} className="rounded-2xl bg-white border border-slate-100 shadow-lg p-4">
+              <h4 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center text-white text-sm">✓</span>
+                Yang Bisa Dimigrasikan
+              </h4>
+              <div className="space-y-2">
+                {[
+                  { from: "Tabel Pasien MySQL", to: "patients (PostgreSQL)", icon: "👤" },
+                  { from: "Data Rekam Medis", to: "medical_records + diagnoses", icon: "📋" },
+                  { from: "Master Obat/Tarif", to: "medicines + tariffs", icon: "💊" },
+                  { from: "Data Keuangan", to: "billings + journal_entries", icon: "💰" },
+                  { from: "Data Karyawan", to: "employees + doctors", icon: "👥" },
+                  { from: "Inventori", to: "inventory_items + batches", icon: "📦" },
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-xs bg-emerald-50/50 rounded-lg p-2">
+                    <span>{item.icon}</span>
+                    <span className="text-slate-500 line-through">{item.from}</span>
+                    <span className="text-emerald-500 font-bold">→</span>
+                    <span className="text-slate-800 font-medium">{item.to}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div variants={scaleIn} custom={1} className="rounded-2xl bg-white border border-slate-100 shadow-lg p-4">
+              <h4 className="font-bold text-slate-900 text-sm mb-3 flex items-center gap-2">
+                <span className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white text-sm">⚠️</span>
+                Yang Perlu Diperhatikan
+              </h4>
+              <div className="space-y-2.5">
+                {[
+                  { title: "Encoding", desc: "MySQL latin1 → UTF-8 konversi otomatis saat import" },
+                  { title: "Auto-increment → UUID", desc: "ID lama di-mapping ke UUID baru dengan tabel referensi silang" },
+                  { title: "Logic PHP → Cloud", desc: "Business logic di PHP di-review & dipastikan ter-cover di sistem baru" },
+                  { title: "Parallel Run", desc: "Sistem lama tetap jalan bersamaan selama masa transisi (Bulan 4-5)" },
+                  { title: "Validasi Data", desc: "NIK 16 digit, format tanggal, ICD-10 code di-cleansing otomatis" },
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-amber-50/50 rounded-lg p-2">
+                    <p className="text-xs font-semibold text-slate-800">{item.title}</p>
+                    <p className="text-xs text-slate-500">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Bottom assurance */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-3"
+            variants={fadeInUp} initial="hidden" animate="visible" custom={5}
+          >
+            {[
+              { icon: "🛡️", label: "Zero Data Loss", desc: "Validasi integritas sebelum cutover" },
+              { icon: "⏱️", label: "Downtime Minimal", desc: "Parallel run menjamin kontinuitas" },
+              { icon: "📊", label: "180+ Tabel Siap", desc: "Struktur target sudah lengkap" },
+              { icon: "🔧", label: "Migration Tool", desc: "Mapping interaktif & preview data" },
+            ].map((item, idx) => (
+              <motion.div 
+                key={idx}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-100 shadow-md"
+                whileHover={{ scale: 1.03, y: -2 }}
+              >
+                <span className="text-lg">{item.icon}</span>
+                <div>
+                  <p className="text-xs font-bold text-slate-800">{item.label}</p>
+                  <p className="text-xs text-slate-400">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 14,
+    title: "Perbandingan Sistem",
+    content: (
+      <div className="relative flex flex-col min-h-full px-8 py-10 overflow-hidden">
+        <motion.div className="absolute inset-0 bg-gradient-to-br from-red-50/30 via-transparent to-emerald-50/30" />
+        <div className="relative z-10 max-w-6xl mx-auto w-full">
+          <motion.p className="text-xs text-slate-400 tracking-[0.3em] uppercase mb-2" variants={fadeInUp} initial="hidden" animate="visible">
+            12 — Perbandingan Sistem
+          </motion.p>
+          <motion.h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5" variants={fadeInUp} initial="hidden" animate="visible" custom={1}>
+            PHP 5 + MySQL <span className="text-slate-400">vs</span> <span className="text-primary">SIMRS ZEN</span>
+          </motion.h2>
+
+          {/* Comparison Table */}
+          <motion.div className="rounded-2xl bg-white border border-slate-100 shadow-xl overflow-hidden mb-5" variants={fadeInUp} initial="hidden" animate="visible" custom={2}>
+            <div className="grid grid-cols-3 text-xs">
+              <div className="bg-slate-50 p-3 font-bold text-slate-600 border-b border-slate-100">Aspek</div>
+              <div className="bg-red-50 p-3 font-bold text-red-700 border-b border-slate-100 text-center">❌ PHP 5 + MySQL</div>
+              <div className="bg-emerald-50 p-3 font-bold text-emerald-700 border-b border-slate-100 text-center">✅ SIMRS ZEN</div>
+              {[
+                ["Keamanan", "PHP 5 EOL 2018, tanpa patch", "RLS, JWT, audit trail, UU PDP"],
+                ["Database", "MySQL single server, backup manual", "PostgreSQL cloud, auto-backup harian"],
+                ["Arsitektur", "Monolith spaghetti code", "Modular 30+ modul, microservices-ready"],
+                ["Integrasi", "Manual coding per API", "Built-in SATU SEHAT, BPJS, SISRUTE"],
+                ["UI/UX", "Server-rendered, reload penuh", "SPA real-time, responsive, PWA"],
+                ["Multi-role", "Hardcoded if-else", "RBAC 21 role, menu access granular"],
+                ["Pelaporan", "Manual export Excel", "Otomatis RL 1-6, SISMADAK"],
+                ["Skalabilitas", "Vertical only", "Horizontal + vertical auto-scale"],
+                ["Real-time", "Polling / refresh manual", "WebSocket & Realtime subscription"],
+                ["Deployment", "FTP ke shared hosting", "CI/CD otomatis, cloud infrastructure"],
+              ].map(([aspect, legacy, modern], idx) => (
+                <div key={idx} className="contents">
+                  <div className={`p-2.5 font-semibold text-slate-800 ${idx % 2 === 0 ? 'bg-slate-50/50' : 'bg-white'} border-b border-slate-50`}>{aspect}</div>
+                  <div className={`p-2.5 text-red-600 ${idx % 2 === 0 ? 'bg-red-50/30' : 'bg-white'} border-b border-slate-50 text-center`}>{legacy}</div>
+                  <div className={`p-2.5 text-emerald-700 font-medium ${idx % 2 === 0 ? 'bg-emerald-50/30' : 'bg-white'} border-b border-slate-50 text-center`}>{modern}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Risk of staying */}
+          <motion.div className="rounded-2xl bg-gradient-to-r from-red-50 to-orange-50 border border-red-100 p-4" variants={fadeInUp} initial="hidden" animate="visible" custom={3}>
+            <h4 className="font-bold text-red-800 text-sm mb-2 flex items-center gap-2">
+              <span className="text-lg">⛔</span> Risiko Tetap di PHP 5 + MySQL
+            </h4>
+            <div className="grid md:grid-cols-2 gap-2">
+              {[
+                "Tidak ada security update sejak 2018 — rentan eksploitasi & ransomware",
+                "Tidak bisa integrasi SATU SEHAT & BPJS modern (butuh FHIR R4/REST API)",
+                "Gagal akreditasi SNARS/KARS karena tidak memenuhi standar IT RS terbaru",
+                "Kehilangan data tinggi tanpa backup otomatis & audit trail",
+              ].map((risk, idx) => (
+                <div key={idx} className="flex items-start gap-2 text-xs text-red-700 bg-white/60 rounded-lg p-2">
+                  <span className="text-red-500 font-bold mt-0.5">✗</span>
+                  <span>{risk}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 15,
+    title: "Standar IT RS",
+    content: (
+      <div className="relative flex flex-col min-h-full px-8 py-10 overflow-hidden">
+        <motion.div className="absolute inset-0 bg-gradient-to-br from-indigo-50/30 via-transparent to-cyan-50/30" />
+        <div className="relative z-10 max-w-6xl mx-auto w-full">
+          <motion.p className="text-xs text-slate-400 tracking-[0.3em] uppercase mb-2" variants={fadeInUp} initial="hidden" animate="visible">
+            11 — Standar IT RS
+          </motion.p>
+          <motion.h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2" variants={fadeInUp} initial="hidden" animate="visible" custom={1}>
+            Standar <span className="text-primary">IT Rumah Sakit</span> Terbaru
+          </motion.h2>
+          <motion.p className="text-sm text-slate-500 mb-5" variants={fadeInUp} initial="hidden" animate="visible" custom={2}>
+            Regulasi yang wajib dipenuhi oleh sistem informasi rumah sakit di Indonesia
+          </motion.p>
+
+          <motion.div className="grid md:grid-cols-3 gap-3 mb-5" variants={staggerContainer} initial="hidden" animate="visible">
+            {[
+              {
+                icon: "🏥", title: "Permenkes 82/2013", subtitle: "SIMRS Wajib",
+                items: ["Sistem informasi RS wajib terintegrasi", "Mendukung manajemen klinis & administratif", "Pelaporan online ke Kemenkes (RL 1-6)", "Standar keamanan data pasien"],
+                color: "from-blue-500 to-indigo-500", status: "✅ Terpenuhi"
+              },
+              {
+                icon: "🔗", title: "Permenkes 24/2022", subtitle: "Rekam Medis Elektronik",
+                items: ["RME wajib untuk seluruh fasyankes", "Interoperabilitas via SATU SEHAT", "Standar FHIR R4 untuk pertukaran data", "Tanda tangan digital & audit trail"],
+                color: "from-primary to-blue-500", status: "✅ Terpenuhi"
+              },
+              {
+                icon: "🛡️", title: "UU PDP No. 27/2022", subtitle: "Perlindungan Data Pribadi",
+                items: ["Enkripsi data sensitif (at-rest & in-transit)", "Hak akses berbasis peran (RBAC)", "Consent management untuk pasien", "Audit log seluruh akses data"],
+                color: "from-emerald-500 to-teal-500", status: "✅ Terpenuhi"
+              },
+              {
+                icon: "⭐", title: "SNARS Edisi 2.1", subtitle: "Akreditasi RS",
+                items: ["MIRM: Manajemen Informasi & Rekam Medis", "PMKP: Peningkatan Mutu & Keselamatan Pasien", "PPI: Pencegahan & Pengendalian Infeksi", "Integrasi seluruh unit pelayanan"],
+                color: "from-amber-500 to-orange-500", status: "✅ Terpenuhi"
+              },
+              {
+                icon: "🌐", title: "SATU SEHAT (2024)", subtitle: "Interoperabilitas Nasional",
+                items: ["11 resource FHIR R4 wajib dikirim", "Organization, Location, Practitioner", "Patient, Encounter, Condition", "Observation, Medication, AllergyIntolerance"],
+                color: "from-cyan-500 to-blue-500", status: "✅ Terpenuhi"
+              },
+              {
+                icon: "💳", title: "BPJS Kesehatan", subtitle: "Bridging System",
+                items: ["VClaim API untuk verifikasi peserta & SEP", "Antrean Online RS terintegrasi", "E-Claim & INA-CBG Grouper", "iCare JKN untuk monitoring klaim"],
+                color: "from-green-500 to-emerald-500", status: "✅ Terpenuhi"
+              },
+            ].map((item, idx) => (
+              <motion.div key={idx} variants={scaleIn} custom={idx} className="group">
+                <motion.div className="h-full rounded-2xl bg-white border border-slate-100 shadow-lg p-4 hover:shadow-xl transition-all" whileHover={{ y: -4 }}>
+                  <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-xl shadow-md mb-2`}>
+                    {item.icon}
+                  </div>
+                  <h3 className="font-bold text-slate-900 text-sm">{item.title}</h3>
+                  <p className="text-xs text-slate-400 mb-2">{item.subtitle}</p>
+                  <div className="space-y-1 mb-3">
+                    {item.items.map((i, iIdx) => (
+                      <div key={iIdx} className="flex items-start gap-1.5 text-xs text-slate-600">
+                        <span className={`w-1 h-1 rounded-full bg-gradient-to-r ${item.color} mt-1.5 flex-shrink-0`} />
+                        <span>{i}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <span className={`inline-block px-2.5 py-1 rounded-full bg-gradient-to-r ${item.color} text-white text-xs font-medium shadow-sm`}>
+                    {item.status}
+                  </span>
+                </motion.div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div className="rounded-2xl bg-gradient-to-r from-indigo-50 to-blue-50 border border-indigo-100 p-4" variants={fadeInUp} initial="hidden" animate="visible" custom={5}>
+            <p className="text-xs text-indigo-800 text-center font-medium">
+              💡 <strong>Kesimpulan:</strong> Sistem berbasis PHP 5 + MySQL <strong>tidak mampu memenuhi</strong> satupun standar di atas karena keterbatasan arsitektur, keamanan yang sudah kadaluarsa, dan ketidakmampuan integrasi API modern (FHIR R4, REST). SIMRS ZEN dirancang dari awal untuk <strong>memenuhi seluruh regulasi</strong> ini secara native.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 16,
+    title: "Penutup",
+    content: (
+      <div className="relative flex flex-col items-center justify-center min-h-full px-8 py-12 overflow-hidden">
+        <motion.div
+          className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5"
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 4, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute top-20 right-20 w-40 h-40 rounded-full border-2 border-primary/20"
+          animate={{ scale: [1, 1.2, 1], rotate: 180 }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        
+        <div className="relative z-10 text-center max-w-3xl">
+          <motion.p 
+            className="text-xs text-slate-400 tracking-[0.4em] uppercase mb-4"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+          >
+            Next Step
+          </motion.p>
+          
+          <motion.h1 
+            className="text-4xl md:text-5xl font-bold text-slate-900 mb-6"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+          >
+            Siap <span className="text-primary">Bertransformasi</span> Digital?
+          </motion.h1>
+          
+          <motion.p 
+            className="text-slate-500 leading-relaxed mb-8"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={2}
+          >
+            Hubungi tim kami untuk presentasi lebih lanjut dan demo langsung SIMRS ZEN
+          </motion.p>
+          
+          {/* QR Code Section */}
+          <motion.div 
+            className="flex justify-center gap-8 mb-8"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={3}
+          >
+            <div className="text-center">
+              <motion.div 
+                className="w-32 h-32 bg-white rounded-2xl shadow-xl p-3 mb-3 mx-auto flex items-center justify-center border-2 border-primary/20"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="text-4xl">📱</span>
+                    <p className="text-xs text-slate-500 mt-1">QR Demo</p>
+                  </div>
+                </div>
+              </motion.div>
+              <p className="text-sm font-semibold text-slate-900">Live Demo</p>
+              <p className="text-xs text-slate-500">rsmoewardi.jatengprov.go.id</p>
+            </div>
+            <div className="text-center">
+              <motion.div 
+                className="w-32 h-32 bg-white rounded-2xl shadow-xl p-3 mb-3 mx-auto flex items-center justify-center border-2 border-emerald-200"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-full h-full bg-gradient-to-br from-emerald-50 to-teal-50 rounded-lg flex items-center justify-center">
+                  <div className="text-center">
+                    <span className="text-4xl">💬</span>
+                    <p className="text-xs text-emerald-600 mt-1">WhatsApp</p>
+                  </div>
+                </div>
+              </motion.div>
+              <p className="text-sm font-semibold text-slate-900">Konsultasi</p>
+              <p className="text-xs text-slate-500">Hubungi Kami</p>
+            </div>
+          </motion.div>
+          
+          <motion.div 
+            className="border-t border-slate-200 pt-6"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={4}
+          >
+            <motion.img 
+              src={rsudLogo} 
+              alt="RSUD Dr. Moewardi" 
+              className="h-10 mx-auto mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            />
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+              <motion.span whileHover={{ scale: 1.05, color: "#0066FF" }} className="cursor-pointer">📧 rsmoewardi@jatengprov.go.id</motion.span>
+              <motion.span whileHover={{ scale: 1.05, color: "#0066FF" }} className="cursor-pointer">📞 (0271) 637415</motion.span>
+            </div>
+            <p className="text-xs text-slate-400 mt-3">Jl. Kolonel Sutarto No.132, Kec. Jebres, Kota Surakarta, Jawa Tengah 57126</p>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  // Slide: Role & Fungsi Pengguna
+  {
+    id: 17,
+    title: "Role & Fungsi Pengguna",
+    content: (
+      <div className="relative flex flex-col min-h-full px-8 py-12 bg-gradient-to-br from-slate-50 to-blue-50 overflow-y-auto">
+        <motion.p className="text-xs text-slate-400 tracking-[0.3em] uppercase mb-2 text-center" variants={fadeInUp} initial="hidden" animate="visible">06 — Manajemen Pengguna</motion.p>
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 text-center"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
+          21 Role Pengguna SIMRS RSUD Dr. Moewardi
+        </motion.h2>
+        <motion.p 
+          className="text-slate-500 text-center mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          Setiap role memiliki akses menu & fungsi yang terpisah (RBAC)
+        </motion.p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto w-full">
+          {[
+            { role: "Administrator", color: "bg-red-500", desc: "Pengelolaan penuh sistem, user, modul, dan konfigurasi rumah sakit" },
+            { role: "Direktur", color: "bg-purple-600", desc: "Dashboard eksekutif, laporan keuangan, statistik kinerja RS" },
+            { role: "Dokter Umum", color: "bg-blue-500", desc: "Rawat jalan, rekam medis, resep, e-konsultasi, SOAP" },
+            { role: "Dokter Spesialis", color: "bg-blue-700", desc: "Rawat jalan/inap, rujukan, tindakan, rekam medis spesialistik" },
+            { role: "Perawat", color: "bg-teal-500", desc: "Asuhan keperawatan, vital signs, pemberian obat, CPPT" },
+            { role: "Bidan", color: "bg-pink-500", desc: "ANC, persalinan, KB, rekam medis ibu & anak" },
+            { role: "Apoteker", color: "bg-green-600", desc: "Verifikasi resep, dispensing, stok obat, retur, MESO" },
+            { role: "Asisten Apoteker", color: "bg-green-400", desc: "Dispensing obat, pengemasan, pengecekan stok, label obat" },
+            { role: "Analis Lab", color: "bg-amber-600", desc: "Input hasil lab, validasi pemeriksaan, kontrol kualitas" },
+            { role: "Radiografer", color: "bg-indigo-500", desc: "Pemeriksaan radiologi, input hasil, PACS/DICOM" },
+            { role: "Petugas Pendaftaran", color: "bg-cyan-500", desc: "Registrasi pasien, verifikasi BPJS, antrian, booking" },
+            { role: "Kasir / Billing", color: "bg-yellow-600", desc: "Pembayaran, invoice, rincian biaya, pembatalan tagihan" },
+            { role: "Petugas Rekam Medis", color: "bg-orange-500", desc: "Pengelolaan berkas RM, coding ICD-10/ICD-9, pelaporan RL" },
+            { role: "Nutrisionis", color: "bg-lime-600", desc: "Diet pasien, meal plan, alergi makanan, laporan gizi" },
+            { role: "Fisioterapis", color: "bg-emerald-500", desc: "Terapi rehabilitasi, jadwal sesi, progress pasien" },
+            { role: "HRD", color: "bg-violet-500", desc: "Data karyawan, shift, payroll, absensi, PPh 21, BPJS TK" },
+            { role: "Procurement", color: "bg-rose-500", desc: "Purchase request, approval pembelian, manajemen vendor" },
+            { role: "Manajemen Inventory", color: "bg-stone-600", desc: "Stok barang, opname, batch, expiry, auto-reorder" },
+            { role: "Petugas BPJS", color: "bg-sky-600", desc: "SEP, VClaim, Antrean JKN, E-Claim, klaim & verifikasi" },
+            { role: "Kepala Ruangan", color: "bg-fuchsia-600", desc: "Monitoring bed, jadwal perawat, approval cuti, laporan ruangan" },
+            { role: "Manajemen Mutu", color: "bg-amber-700", desc: "Akreditasi SNARS, indikator mutu, insiden keselamatan, audit" },
+          ].map((item, index) => (
+            <motion.div
+              key={item.role}
+              className="flex items-start gap-3 p-3 rounded-xl bg-white shadow-sm border border-slate-100 hover:shadow-md transition-shadow"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 * index }}
+            >
+              <div className={`w-2.5 h-2.5 rounded-full mt-1.5 flex-shrink-0 ${item.color}`} />
+              <div>
+                <p className="font-semibold text-sm text-slate-900">{item.role}</p>
+                <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div 
+          className="mt-8 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 rounded-full">
+            <span className="text-xs font-medium text-blue-700">✦ Setiap role dapat dikustomisasi melalui menu Manajemen User → Hak Akses</span>
+          </div>
+        </motion.div>
+      </div>
+    ),
+  },
+  {
+    id: 18,
+    title: "E-Klaim IDRG",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-12 overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+        <motion.div
+          className="absolute top-10 right-10 w-[300px] h-[300px] rounded-full bg-gradient-to-br from-indigo-200/30 to-purple-200/30 blur-3xl"
+          animate={{ scale: [1, 1.15, 1], rotate: [0, 180, 360] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        />
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-8">
+            <p className="text-xs text-indigo-600 tracking-[0.3em] uppercase mb-2 font-semibold">10 — Bridging E-Klaim</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
+              Full Bridging <span className="text-indigo-600">E-Klaim IDRG</span>
+            </h2>
+            <p className="text-slate-500 mt-3 max-w-2xl mx-auto text-sm">
+              Implementasi lengkap 31 endpoint API E-Klaim sesuai Juknis Onboarding Full Bridging iDRG
+            </p>
+          </motion.div>
+          
+          {/* Workflow Steps */}
+          <motion.div 
+            className="mb-8 p-5 rounded-2xl bg-white border border-indigo-100 shadow-lg"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+          >
+            <h4 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">Alur Klaim IDRG End-to-End</h4>
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {[
+                { step: "00", label: "New Claim" },
+                { step: "01", label: "Set Data" },
+                { step: "02", label: "Diagnosa" },
+                { step: "04", label: "Procedure" },
+                { step: "06", label: "Grouper IDRG" },
+                { step: "07", label: "Final IDRG" },
+                { step: "09", label: "Import INACBG" },
+                { step: "14", label: "Grouper INACBG" },
+                { step: "18", label: "Claim Final" },
+                { step: "20", label: "Claim Send" },
+              ].map((item, idx) => (
+                <motion.div key={idx} className="flex items-center gap-1.5"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + idx * 0.08 }}
+                >
+                  <div className="px-2 py-1.5 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-500 text-white text-[10px] font-bold shadow-md">
+                    #{item.step}
+                  </div>
+                  <span className="text-xs text-slate-600 font-medium">{item.label}</span>
+                  {idx < 9 && <span className="text-indigo-300 font-bold">→</span>}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* API Categories Grid */}
+          <motion.div 
+            className="grid md:grid-cols-3 gap-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {[
+              {
+                title: "Manajemen Klaim",
+                gradient: "from-indigo-500 to-blue-500",
+                icon: "📋",
+                items: ["#00 New Claim", "#01 Set Claim Data", "#21 Get Claim Data", "#18 Claim Final", "#19 Claim Re-Edit", "#20 Claim Send", "#26 Cetak Klaim"]
+              },
+              {
+                title: "IDRG Processing",
+                gradient: "from-purple-500 to-pink-500",
+                icon: "🔬",
+                items: ["#02 Diagnosa Set", "#03 Diagnosa Get", "#04 Procedure Set", "#05 Procedure Get", "#06 Grouping IDRG", "#07 Final IDRG", "#08 Re-Edit IDRG", "#09 Import ke INACBG"]
+              },
+              {
+                title: "INACBG Processing",
+                gradient: "from-pink-500 to-rose-500",
+                icon: "🏥",
+                items: ["#10 Diagnosa Set", "#11 Diagnosa Get", "#12 Procedure Set", "#13 Procedure Get", "#14 Grouper Stage 1", "#15 Grouper Stage 2", "#16 Final", "#17 Re-Edit"]
+              },
+              {
+                title: "Search & Referensi",
+                gradient: "from-amber-500 to-orange-500",
+                icon: "🔍",
+                items: ["#22 Search Diagnosa IDRG", "#23 Search Procedure IDRG", "#24 Search Diagnosa INACBG", "#25 Search Procedure INACBG"]
+              },
+              {
+                title: "Utilitas",
+                gradient: "from-emerald-500 to-teal-500",
+                icon: "🔧",
+                items: ["Update Patient", "Delete Patient", "Delete Claim Data"]
+              },
+              {
+                title: "Rekam Medis Elektronik",
+                gradient: "from-cyan-500 to-blue-500",
+                icon: "💾",
+                items: ["Set Encounter RME", "Enkripsi AES-256-CBC", "Debug Mode Support"]
+              },
+            ].map((cat, idx) => (
+              <motion.div 
+                key={idx}
+                variants={scaleIn}
+                custom={idx}
+                className="relative overflow-hidden rounded-2xl p-5 bg-white border border-slate-100 shadow-lg group"
+                whileHover={{ y: -4 }}
+              >
+                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${cat.gradient}`} />
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-2xl">{cat.icon}</span>
+                  <h3 className="font-bold text-slate-900 text-sm">{cat.title}</h3>
+                </div>
+                <ul className="space-y-1">
+                  {cat.items.map((item, iIdx) => (
+                    <li key={iIdx} className="flex items-center gap-2 text-xs text-slate-600">
+                      <span className={`w-1 h-1 rounded-full bg-gradient-to-r ${cat.gradient}`} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div 
+            className="mt-6 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 border border-indigo-200 rounded-full">
+              <span className="text-xs font-medium text-indigo-700">✦ Sesuai Juknis Onboarding Full Bridging iDRG — Kemenkes RI</span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 19,
+    title: "Topologi PACS",
+    content: (
+      <div className="relative min-h-full px-8 md:px-16 py-12 overflow-hidden bg-gradient-to-br from-sky-50 via-white to-blue-50">
+        <motion.div
+          className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-sky-200/20 to-blue-200/20 blur-3xl"
+          animate={{ scale: [1, 1.15, 1] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        />
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-8">
+            <p className="text-xs text-sky-600 tracking-[0.3em] uppercase mb-2 font-semibold">11 — Topologi Integrasi</p>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900">
+              Topologi <span className="text-sky-600">PACS & Imaging</span>
+            </h2>
+            <p className="text-slate-500 mt-3 max-w-2xl mx-auto text-sm">
+              Arsitektur integrasi SIMRS dengan sistem penyimpanan & distribusi gambar medis (DICOM)
+            </p>
+          </motion.div>
+
+          {/* Topology Diagram */}
+          <motion.div 
+            className="relative mb-8"
+            variants={fadeInUp}
+            initial="hidden"
+            animate="visible"
+            custom={1}
+          >
+            <div className="rounded-2xl bg-white border border-sky-100 shadow-xl p-8">
+              {/* Top Layer - Modalitas */}
+              <div className="text-center mb-2">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Modalitas Imaging</span>
+              </div>
+              <motion.div 
+                className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                {[
+                  { icon: "🦴", name: "X-Ray / CR", desc: "Rontgen Digital" },
+                  { icon: "🧠", name: "CT Scan", desc: "Computed Tomography" },
+                  { icon: "🫀", name: "MRI", desc: "Magnetic Resonance" },
+                  { icon: "👶", name: "USG", desc: "Ultrasonography" },
+                  { icon: "🦷", name: "Panoramic", desc: "Dental Imaging" },
+                ].map((mod, idx) => (
+                  <motion.div
+                    key={idx}
+                    variants={scaleIn}
+                    custom={idx}
+                    className="flex flex-col items-center p-4 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200 hover:shadow-lg transition-all"
+                    whileHover={{ y: -4, scale: 1.03 }}
+                  >
+                    <span className="text-3xl mb-2">{mod.icon}</span>
+                    <p className="font-bold text-xs text-slate-800">{mod.name}</p>
+                    <p className="text-[10px] text-slate-500">{mod.desc}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              {/* Connection Lines Down */}
+              <div className="flex justify-center mb-2">
+                <motion.div 
+                  className="flex flex-col items-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                >
+                  <div className="w-px h-6 bg-gradient-to-b from-slate-300 to-sky-400" />
+                  <div className="px-3 py-1 rounded-full bg-sky-100 border border-sky-200 text-[10px] font-bold text-sky-700">
+                    DICOM Protocol
+                  </div>
+                  <div className="w-px h-6 bg-gradient-to-b from-sky-400 to-sky-500" />
+                </motion.div>
+              </div>
+
+              {/* Middle Layer - PACS Server */}
+              <motion.div 
+                className="mx-auto max-w-lg mb-6 p-6 rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-2xl shadow-sky-500/30 relative overflow-hidden"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.6, duration: 0.5 }}
+              >
+                <motion.div 
+                  className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0"
+                  animate={{ x: ['-100%', '100%'] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                />
+                <div className="relative z-10 text-center">
+                  <span className="text-4xl mb-2 block">🖥️</span>
+                  <h3 className="text-xl font-bold">PACS Server</h3>
+                  <p className="text-sky-100 text-xs mt-1">Orthanc / DCM4CHEE / Horos / Conquest</p>
+                  <div className="flex justify-center gap-3 mt-4">
+                    {["C-STORE", "C-FIND", "C-MOVE", "WADO-RS", "QIDO-RS"].map((proto, i) => (
+                      <span key={i} className="px-2 py-1 rounded bg-white/20 text-[10px] font-bold">
+                        {proto}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Connection Lines Down */}
+              <div className="flex justify-center mb-2">
+                <motion.div 
+                  className="flex flex-col items-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8 }}
+                >
+                  <div className="w-px h-6 bg-gradient-to-b from-sky-500 to-emerald-400" />
+                  <div className="px-3 py-1 rounded-full bg-emerald-100 border border-emerald-200 text-[10px] font-bold text-emerald-700">
+                    DICOMweb REST API / HTTPS
+                  </div>
+                  <div className="w-px h-6 bg-gradient-to-b from-emerald-400 to-emerald-500" />
+                </motion.div>
+              </div>
+
+              {/* Bottom Layer - SIMRS & Edge Function */}
+              <motion.div 
+                className="grid md:grid-cols-3 gap-4"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.div 
+                  variants={scaleIn}
+                  className="flex flex-col items-center p-5 rounded-xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200"
+                >
+                  <span className="text-3xl mb-2">⚡</span>
+                  <p className="font-bold text-sm text-slate-800">Edge Function</p>
+                  <p className="text-[10px] text-slate-500 text-center mt-1">pacs-bridge</p>
+                  <div className="mt-3 space-y-1 w-full">
+                    {["Query Studies", "Retrieve Images", "Store DICOM"].map((fn, i) => (
+                      <div key={i} className="text-[10px] px-2 py-1 rounded bg-white border border-emerald-100 text-center text-emerald-700 font-medium">
+                        {fn}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  variants={scaleIn}
+                  custom={1}
+                  className="flex flex-col items-center p-5 rounded-xl bg-gradient-to-br from-primary/10 to-blue-50 border-2 border-primary/30 shadow-lg"
+                >
+                  <span className="text-3xl mb-2">🏥</span>
+                  <p className="font-bold text-sm text-primary">SIMRS ZEN</p>
+                  <p className="text-[10px] text-slate-500 text-center mt-1">Frontend Application</p>
+                  <div className="mt-3 space-y-1 w-full">
+                    {["Viewer Imaging", "Riwayat Radiologi", "Integrasi Rekam Medis"].map((fn, i) => (
+                      <div key={i} className="text-[10px] px-2 py-1 rounded bg-white border border-primary/20 text-center text-primary font-medium">
+                        {fn}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+
+                <motion.div 
+                  variants={scaleIn}
+                  custom={2}
+                  className="flex flex-col items-center p-5 rounded-xl bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200"
+                >
+                  <span className="text-3xl mb-2">👨‍⚕️</span>
+                  <p className="font-bold text-sm text-slate-800">Pengguna</p>
+                  <p className="text-[10px] text-slate-500 text-center mt-1">Dokter & Radiografer</p>
+                  <div className="mt-3 space-y-1 w-full">
+                    {["Lihat Hasil Rontgen", "Banding Studi", "Download DICOM"].map((fn, i) => (
+                      <div key={i} className="text-[10px] px-2 py-1 rounded bg-white border border-amber-100 text-center text-amber-700 font-medium">
+                        {fn}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </motion.div>
+
+          {/* Features */}
+          <motion.div 
+            className="grid md:grid-cols-4 gap-3"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            {[
+              { icon: "🔐", title: "TLS/HTTPS", desc: "Koneksi terenkripsi antar sistem" },
+              { icon: "⚙️", title: "Multi Server", desc: "Support Orthanc, DCM4CHEE, Horos, Conquest" },
+              { icon: "🔄", title: "Auto Sync", desc: "Sinkronisasi otomatis studi & gambar baru" },
+              { icon: "📱", title: "Web Viewer", desc: "Lihat gambar medis langsung di browser" },
+            ].map((feat, idx) => (
+              <motion.div
+                key={idx}
+                variants={scaleIn}
+                custom={idx}
+                className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-100 shadow-sm"
+                whileHover={{ y: -2 }}
+              >
+                <span className="text-xl flex-shrink-0">{feat.icon}</span>
+                <div>
+                  <p className="font-bold text-xs text-slate-800">{feat.title}</p>
+                  <p className="text-[10px] text-slate-500">{feat.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div 
+            className="mt-6 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-50 border border-sky-200 rounded-full">
+              <span className="text-xs font-medium text-sky-700">✦ Konfigurasi PACS tersedia di Pengaturan → Integrasi Eksternal</span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    ),
+  },
+];
+
+// Reorder slides into a logical presentation flow:
+// Intro → Product overview → Technical → Compliance → Migration → Support → Close
+const slideOrder = [1, 2, 3, 4, 10, 11, 17, 7, 5, 6, 18, 19, 12, 15, 14, 13, 8, 9, 16];
+const slides: Slide[] = slideOrder.map((originalId, idx) => ({
+  ..._rawSlides.find(s => s.id === originalId)!,
+  id: idx + 1,
+}));
+
+export default function Presentasi() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showNav, setShowNav] = useState(false);
+
+  const goToSlide = useCallback((index: number) => {
+    if (index >= 0 && index < slides.length) {
+      setCurrentSlide(index);
+    }
+  }, []);
+
+  const nextSlide = useCallback(() => {
+    goToSlide(currentSlide + 1);
+  }, [currentSlide, goToSlide]);
+
+  const prevSlide = useCallback(() => {
+    goToSlide(currentSlide - 1);
+  }, [currentSlide, goToSlide]);
+
+  const toggleFullscreen = useCallback(() => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight" || e.key === " ") {
+        nextSlide();
+      } else if (e.key === "ArrowLeft") {
+        prevSlide();
+      } else if (e.key === "Escape") {
+        setShowNav(false);
+      } else if (e.key === "f") {
+        toggleFullscreen();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [nextSlide, prevSlide, toggleFullscreen]);
+
+  useEffect(() => {
+    if (!isPlaying) return;
+
+    const interval = setInterval(() => {
+      if (currentSlide < slides.length - 1) {
+        nextSlide();
+      } else {
+        setIsPlaying(false);
+      }
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isPlaying, currentSlide, nextSlide]);
+
+  const slide = slides[currentSlide];
+  const progress = ((currentSlide + 1) / slides.length) * 100;
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b">
+        <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <img 
+              src={rsudLogo} 
+              alt="SIMRS ZEN" 
+              className="h-10 w-auto" 
+            />
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">
+              SIMRS ZEN
+            </span>
+          </div>
+          <nav className="hidden md:flex space-x-8">
+            {['Tentang', 'Modul', 'Kontak'].map((item) => (
+              <button 
+                key={item} 
+                className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                onClick={() => item === 'Kontak' ? setShowContactForm(true) : setActiveTab(item.toLowerCase())}
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
+          <Button 
+            variant="outline" 
+            className="hidden md:block"
+            onClick={() => setShowContactForm(true)}
+          >
+            Hubungi Kami
+          </Button>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Badge className="mb-4 px-4 py-2 text-sm">Versi 2.0</Badge>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Sistem Informasi <span className="text-blue-600">Manajemen</span> Rumah Sakit
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+              Platform digital modern berbasis cloud untuk transformasi digital rumah sakit Indonesia. Terintegrasi, komprehensif, dan siap mendukung operasional rumah sakit modern.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Button size="lg" className="px-8 py-6 text-lg">
+                Coba Demo Sekarang
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              <Button size="lg" variant="outline" className="px-8 py-6 text-lg">
+                Lihat Dokumentasi
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Tentang <span className="text-blue-600">SIMRS ZEN</span></h2>
+            <p className="text-lg text-gray-700">
+              <span className="font-semibold text-slate-900">SIMRS ZEN</span> adalah sistem informasi manajemen rumah sakit generasi terbaru yang dikembangkan dengan pendekatan <span className="text-blue-600 font-semibold">cloud-native</span> dan <span className="text-blue-600 font-semibold">user-centric design</span>.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mt-16">
+            {[1, 2, 3].map((item) => (
+              <Card key={item} className="hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="h-2 bg-gradient-to-r from-blue-500 to-teal-500"></div>
+                <CardContent className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 bg-blue-50 rounded-lg">
+                      <Heart className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h3 className="text-xl font-bold">Fitur {item}</h3>
+                  </div>
+                  <p className="text-gray-600">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Modules Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Modul <span className="text-blue-600">Komprehensif</span></h2>
+            <p className="text-lg text-gray-700">
+              Solusi modul terlengkap untuk mendukung seluruh proses operasional rumah sakit
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: "Manajemen Pasien", icon: <Users className="h-5 w-5" />, desc: "Pendaftaran, identitas pasien, dan riwayat kunjungan" },
+              { name: "Rekam Medis", icon: <FileText className="h-5 w-5" />, desc: "Catatan medis digital terintegrasi" },
+              { name: "Farmasi", icon: <Heart className="h-5 w-5" />, desc: "Manajemen obat dan inventaris farmasi" },
+              { name: "Keuangan", icon: <FileText className="h-5 w-5" />, desc: "Billing, tagihan, dan laporan keuangan" },
+              { name: "Laboratorium", icon: <Award className="h-5 w-5" />, desc: "Pengelolaan data laboratorium terpadu" },
+              { name: "Radiologi", icon: <Shield className="h-5 w-5" />, desc: "Manajemen layanan radiologi digital" }
+            ].map((modul, idx) => (
+              <Card key={idx} className="p-6 hover:border-blue-300 hover:shadow-md transition-all">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-2 bg-blue-100 rounded-lg text-blue-600">
+                    {modul.icon}
+                  </div>
+                  <h3 className="font-bold text-lg">{modul.name}</h3>
+                </div>
+                <p className="text-gray-600 text-sm">{modul.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            {[
+              { value: "99.9%", label: "Uptime" },
+              { value: "24/7", label: "Dukungan" },
+              { value: "10K+", label: "Pasien" },
+              { value: "50+", label: "Rumah Sakit" }
+            ].map((stat, idx) => (
+              <div key={idx}>
+                <div className="text-4xl font-bold mb-2">{stat.value}</div>
+                <div className="text-blue-100">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+          >
+            <div className="p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="text-2xl font-bold">Hubungi Kami</h3>
+                <Button variant="ghost" onClick={() => setShowContactForm(false)}>
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+              
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="name">Nama Lengkap</Label>
+                    <Input id="name" placeholder="Nama Anda" />
+                  </div>
+                  <div>
+                    <Label htmlFor="institution">Institusi</Label>
+                    <Input id="institution" placeholder="Nama Rumah Sakit/Instansi" />
+                  </div>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" placeholder="email@contoh.com" />
+                  </div>
+                  <div>
+                    <Label htmlFor="phone">Telepon</Label>
+                    <Input id="phone" placeholder="Nomor telepon/handphone" />
+                  </div>
+                </div>
+                
+                <div>
+                  <Label htmlFor="message">Pesan</Label>
+                  <Textarea id="message" rows={4} placeholder="Jelaskan kebutuhan Anda..." />
+                </div>
+                
+                <Button className="w-full">Kirim Pesan</Button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      )}
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <img src={rsudLogo} alt="SIMRS ZEN" className="h-8 w-auto" />
+                <span className="text-xl font-bold">SIMRS ZEN</span>
+              </div>
+              <p className="text-gray-400 text-sm">
+                Platform SIMRS modern berbasis cloud untuk transformasi digital rumah sakit Indonesia.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-4">Modul Utama</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                {["Pendaftaran", "Rekam Medis", "Farmasi", "Keuangan", "Laboratorium"].map((item, idx) => (
+                  <li key={idx} className="hover:text-white cursor-pointer">{item}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-4">Dukungan</h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                {["Dokumentasi", "Tutorial", "API", "Status", "Hubungi Kami"].map((item, idx) => (
+                  <li key={idx} className="hover:text-white cursor-pointer">{item}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold mb-4">Kontak</h4>
+              <div className="space-y-3 text-sm text-gray-400">
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  <span>simrszen@example.com</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  <span>+62 123 4567 8900</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  <span>Jakarta, Indonesia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-sm text-gray-500">
+            <p>© 2026 SIMRS ZEN. Hak Cipta Dilindungi.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+  return (
+    <div className="relative h-screen w-screen overflow-hidden bg-white">
+      {/* Slide Content with Animation */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentSlide}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -100 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="h-full w-full overflow-y-auto pb-16"
+        >
+          {slide.content}
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Progress Bar */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <div className="h-1 bg-slate-100">
+          <motion.div 
+            className="h-full bg-gradient-to-r from-primary to-blue-500"
+            initial={{ width: 0 }}
+            animate={{ width: `${progress}%` }}
+            transition={{ duration: 0.5 }}
+          />
+        </div>
+      </div>
+
+
+      {/* Top Controls */}
+      <div className="absolute top-4 right-4 flex items-center gap-2">
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full bg-white/80 backdrop-blur border-slate-200 hover:bg-white"
+            onClick={() => setIsPlaying(!isPlaying)}
+          >
+            {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+          </Button>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full bg-white/80 backdrop-blur border-slate-200 hover:bg-white"
+            onClick={toggleFullscreen}
+          >
+            {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+          </Button>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full bg-white/80 backdrop-blur border-slate-200 hover:bg-white"
+            onClick={() => setShowNav(!showNav)}
+          >
+            {showNav ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </Button>
+        </motion.div>
+        <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full bg-white/80 backdrop-blur border-slate-200 hover:bg-white"
+            onClick={() => window.location.href = "/"}
+          >
+            <Home className="h-4 w-4" />
+          </Button>
+        </motion.div>
+      </div>
+
+      {/* Side Navigation Panel */}
+      <AnimatePresence>
+        {showNav && (
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: -300, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="absolute top-0 left-0 bottom-0 w-72 bg-white/95 backdrop-blur shadow-2xl z-50 overflow-y-auto"
+          >
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-6">
+                <h3 className="font-bold text-slate-900">Navigasi Slide</h3>
+                <Button variant="ghost" size="icon" onClick={() => setShowNav(false)}>
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+              <div className="space-y-2">
+                {slides.map((s, idx) => (
+                  <motion.button
+                    key={s.id}
+                    className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all ${
+                      idx === currentSlide 
+                        ? "bg-primary text-white shadow-lg" 
+                        : "hover:bg-slate-100 text-slate-600"
+                    }`}
+                    onClick={() => { goToSlide(idx); setShowNav(false); }}
+                    whileHover={{ x: 4 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <span className="font-medium">{String(idx + 1).padStart(2, '0')}</span>
+                    <span className="mx-2">·</span>
+                    <span>{s.title}</span>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );

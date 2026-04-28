@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgresql://simrszen:password@postgres:5432/simrszen
+      - BPJS_CONS_ID=your_cons_id
+      - BPJS_SECRET=your_secret
+      - BPJS_USER_KEY=your_user_key
+      - BPJS_PPK_CODE=your_ppk_code
+      - BPJS_PPK_RUJUKAN_CODE=your_ppk_rujukan_code
+      - BPJS_USER_NAME=your_username
+      - SATUSEHAT_CLIENT_ID=your_satusehat_client_id
+      - SATUSEHAT_CLIENT_SECRET=your_satusehat_client_secret
+      - SATUSEHAT_ORGANIZATION_CODE=your_organization_code
+      - IDRG_CLIENT_ID=your_idrg_client_id
+      - IDRG_SECRET=your_idrg_secret
+      - PACS_STORAGE_PATH=/app/storage/dicom
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ./storage:/app/storage
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:15  # Mengganti dari 14 ke 15 agar kompatibel
+    environment:
+      POSTGRES_DB: simrszen
+      POSTGRES_USER: simrszen
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine  # Mengupdate agar tetap versi terbaru
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl
+    depends_on:
+      - app
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:

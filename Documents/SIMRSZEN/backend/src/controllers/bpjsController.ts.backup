@@ -1,0 +1,378 @@
+import { Request, Response } from 'express';
+import { BpjsService } from '../services/bpjsService';
+
+export class BpjsController {
+  /**
+   * Mengatur kredensial BPJS Kesehatan
+   */
+  static async setCredentials(req: Request, res: Response): Promise<void> {
+    try {
+      const { username, password, apiKey, consumerSecret, userKey } = req.body;
+
+      if (!username || !password || !apiKey || !consumerSecret || !userKey) {
+        res.status(400).json({
+          success: false,
+          message: 'Username, password, apiKey, consumerSecret, dan userKey wajib diisi',
+          data: null
+        });
+        return;
+      }
+
+      await BpjsService.setCredentials(username, password, apiKey, consumerSecret, userKey);
+
+      res.status(200).json({
+        success: true,
+        message: 'Kredensial BPJS Kesehatan berhasil diatur',
+        data: null
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Mendapatkan data peserta VClaim BPJS berdasarkan nomor kartu
+   */
+  static async getVClaimParticipantByNoKartu(req: Request, res: Response): Promise<void> {
+    try {
+      const { noKartu, tglSEP } = req.params;
+
+      if (!noKartu) {
+        res.status(400).json({
+          success: false,
+          message: 'Parameter noKartu wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const participant = await BpjsService.getVClaimParticipantByNoKartu(noKartu, tglSEP);
+
+      res.status(200).json({
+        success: true,
+        message: 'Data peserta VClaim BPJS berhasil diambil',
+        data: participant
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Mendapatkan data peserta VClaim BPJS berdasarkan NIK
+   */
+  static async getVClaimParticipantByNIK(req: Request, res: Response): Promise<void> {
+    try {
+      const { nik, tglSEP } = req.params;
+
+      if (!nik) {
+        res.status(400).json({
+          success: false,
+          message: 'Parameter nik wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const participant = await BpjsService.getVClaimParticipantByNIK(nik, tglSEP);
+
+      res.status(200).json({
+        success: true,
+        message: 'Data peserta VClaim BPJS berhasil diambil',
+        data: participant
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Get referensi dokter DPJP
+   */
+  static async getDpjpRef(req: Request, res: Response): Promise<void> {
+    try {
+      const { kodePoli, tanggal } = req.params;
+
+      if (!kodePoli || !tanggal) {
+        res.status(400).json({
+          success: false,
+          message: 'Parameter kodePoli dan tanggal wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const dpjp = await BpjsService.getDpjpRef(kodePoli, tanggal);
+
+      res.status(200).json({
+        success: true,
+        message: 'Referensi dokter DPJP berhasil diambil',
+        data: dpjp
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Get referensi poli
+   */
+  static async getPoliRef(req: Request, res: Response): Promise<void> {
+    try {
+      const poli = await BpjsService.getPoliRef();
+
+      res.status(200).json({
+        success: true,
+        message: 'Referensi poli berhasil diambil',
+        data: poli
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Insert SEP
+   */
+  static async insertSEP(req: Request, res: Response): Promise<void> {
+    try {
+      const sepData = req.body;
+
+      if (!sepData) {
+        res.status(400).json({
+          success: false,
+          message: 'Data SEP wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const result = await BpjsService.insertSEP(sepData);
+
+      res.status(200).json({
+        success: true,
+        message: 'SEP berhasil disimpan',
+        data: result
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Get SEP by No SEP
+   */
+  static async getSEPByNoSEP(req: Request, res: Response): Promise<void> {
+    try {
+      const { noSEP } = req.params;
+
+      if (!noSEP) {
+        res.status(400).json({
+          success: false,
+          message: 'Nomor SEP wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const result = await BpjsService.getSEPByNoSEP(noSEP);
+
+      res.status(200).json({
+        success: true,
+        message: 'Data SEP berhasil diambil',
+        data: result
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Update SEP
+   */
+  static async updateSEP(req: Request, res: Response): Promise<void> {
+    try {
+      const { noSEP } = req.params;
+      const sepData = req.body;
+
+      if (!noSEP || !sepData) {
+        res.status(400).json({
+          success: false,
+          message: 'Nomor SEP dan data SEP wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const result = await BpjsService.updateSEP(noSEP, sepData);
+
+      res.status(200).json({
+        success: true,
+        message: 'SEP berhasil diperbarui',
+        data: result
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Delete SEP
+   */
+  static async deleteSEP(req: Request, res: Response): Promise<void> {
+    try {
+      const { noSEP } = req.params;
+
+      if (!noSEP) {
+        res.status(400).json({
+          success: false,
+          message: 'Nomor SEP wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const result = await BpjsService.deleteSEP(noSEP);
+
+      res.status(200).json({
+        success: true,
+        message: 'SEP berhasil dihapus',
+        data: result
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Get data kunjungan
+   */
+  static async getKunjunganRef(req: Request, res: Response): Promise<void> {
+    try {
+      const { noKartu, tanggalMulai, tanggalAkhir } = req.params;
+
+      if (!noKartu || !tanggalMulai || !tanggalAkhir) {
+        res.status(400).json({
+          success: false,
+          message: 'Nomor kartu, tanggal mulai, dan tanggal akhir wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const result = await BpjsService.getKunjunganRef(noKartu, tanggalMulai, tanggalAkhir);
+
+      res.status(200).json({
+        success: true,
+        message: 'Data kunjungan berhasil diambil',
+        data: result
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Get data klaim
+   */
+  static async getKlaimRef(req: Request, res: Response): Promise<void> {
+    try {
+      const { jenisPelayanan, tanggalMulai, tanggalAkhir, jnsPelayanan } = req.params;
+
+      if (!jenisPelayanan || !tanggalMulai || !tanggalAkhir || !jnsPelayanan) {
+        res.status(400).json({
+          success: false,
+          message: 'Jenis pelayanan, tanggal mulai, tanggal akhir, dan jenis pelayanan wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const result = await BpjsService.getKlaimRef(jenisPelayanan, tanggalMulai, tanggalAkhir, jnsPelayanan);
+
+      res.status(200).json({
+        success: true,
+        message: 'Data klaim berhasil diambil',
+        data: result
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+
+  /**
+   * Get data SEP untuk integrasi Inacbg
+   */
+  static async getSEPForInacbg(req: Request, res: Response): Promise<void> {
+    try {
+      const { noSep } = req.params;
+
+      if (!noSep) {
+        res.status(400).json({
+          success: false,
+          message: 'Nomor SEP wajib disediakan',
+          data: null
+        });
+        return;
+      }
+
+      const result = await BpjsService.getSEPForInacbg(noSep);
+
+      res.status(200).json({
+        success: true,
+        message: 'Data SEP untuk Inacbg berhasil diambil',
+        data: result
+      });
+    } catch (error: any) {
+      res.status(500).json({
+        success: false,
+        message: error.message,
+        data: null
+      });
+    }
+  }
+}

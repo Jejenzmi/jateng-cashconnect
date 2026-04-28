@@ -1,0 +1,637 @@
+// Model untuk pasien
+model Patient {
+  id                     String   @id @default(cuid())
+  nik                    String   @unique
+  medicalRecordNumber    String   @unique @default(cuid())
+  name                   String
+  dateOfBirth            DateTime
+  gender                 String
+  bloodType              String?
+  bpjsNumber             String?
+  phone                  String?
+  address                String?
+  occupation             String?
+  maritalStatus          String?
+  religion               String?
+  emergencyContactName   String?
+  emergencyContactPhone  String?
+  visits                 Visit[]
+  queueTickets           QueueTicket[]
+  ambulanceTrips         AmbulanceTrip[]
+  formSubmissions        FormSubmission[]
+  inpatients             Inpatient[]
+  emergencies            Emergency[]
+  icuStays               IcuStay[]
+  bills                  Bill[]
+  appointments           Appointment[]
+  labOrders              LaboratoryOrder[]  // Relasi ke LaboratoryOrder
+  radOrders              RadiologyOrder[]   // Relasi ke RadiologyOrder
+  isDeleted              Boolean  @default(false)
+  deletedAt              DateTime?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  
+  @@map("patients")
+}
+
+// Model untuk pengguna/dokter
+model User {
+  id                  String   @id @default(cuid())
+  nip                 String   @unique
+  fullName            String
+  email               String   @unique
+  password            String
+  phone               String?
+  role                String   @default("USER")
+  roleDetail          Role?    @relation(fields: [roleId], references: [id])
+  roleId              String?
+  department          Department? @relation("UserDepartment", fields: [departmentId], references: [id], map: "UserDepartmentFk")
+  departmentId        String?
+  permissions         Json?
+  avatar              String?
+  lastLogin           DateTime?
+  isDeleted           Boolean  @default(false)
+  deletedAt           DateTime?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  
+  // Relasi ke Visit sebagai dokter
+  visits              Visit[]
+  queueTickets        QueueTicket[]
+  appointments        Appointment[]
+  prescriptions       Prescription[]
+  schedules           Schedule[]
+  labOrders           LaboratoryOrder[]  // Relasi ke LaboratoryOrder
+  radOrders           RadiologyOrder[]   // Relasi ke RadiologyOrder
+  headOfDepartment    Department? @relation("DepartmentHead", map: "DepartmentHeadFk")  // Relasi untuk kepala departemen
+  
+  @@map("users")
+  @@index([email])
+  @@index([role])
+  @@index([departmentId])
+  @@index([roleId])
+}
+
+// Model untuk role
+model Role {
+  id          String   @id @default(cuid())
+  roleName    String   @unique
+  description String?
+  permissions Json?
+  users       User[]
+  isDeleted   Boolean  @default(false)
+  deletedAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("roles")
+}
+
+// Model untuk departemen
+model Department {
+  id            String   @id @default(cuid())
+  name          String
+  code          String   @unique
+  description   String?
+  head          User?    @relation("DepartmentHead", fields: [headId], references: [id])
+  headId        String?  @unique  // Harus unik karena relasi one-to-one
+  parent        Department? @relation("ChildDepartment", fields: [parentId], references: [id])
+  parentId      String?
+  children      Department[] @relation("ChildDepartment")
+  modules       Module[]
+  users         User[] @relation("UserDepartment")  // Relasi ke User
+  isDeleted     Boolean  @default(false)
+  deletedAt     DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("departments")
+  @@index([code])
+  @@index([headId])
+  @@index([parentId])
+}
+
+// Model untuk modul
+model Module {
+  id            String   @id @default(cuid())
+  name          String
+  code          String   @unique
+  description   String?
+  department    Department @relation(fields: [departmentId], references: [id])
+  departmentId  String
+  isDeleted     Boolean  @default(false)
+  deletedAt     DateTime?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  @@map("modules")
+  @@index([code])
+  @@index([departmentId])
+}
+
+// Model untuk visit
+model Visit {
+  id              String              @id @default(cuid())
+  visitNumber     String              @unique
+  status          String              @default("registered") // registered, in_progress, completed, cancelled
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "fk_visit_patient")
+  patientId       String
+  doctor          User                @relation(fields: [doctorId], references: [id], map: "fk_visit_doctor")
+  doctorId        String
+  room            Room?               @relation(fields: [roomId], references: [id], map: "fk_visit_room")
+  roomId          String?
+  complaint       String              // Keluhan utama
+  diagnosis       String?
+  notes           String?
+  prescriptions   Prescription[]
+  labOrders       LaboratoryOrder[]
+  inpatients      Inpatient[]
+  bills           Bill[]
+  radiologyOrders RadiologyOrder[]
+  queueTickets    QueueTicket[]       // Relasi ke QueueTicket
+  appointments    Appointment[]       // Relasi ke Appointment
+  emergencies     Emergency[]         // Relasi ke Emergency
+  icuStays        IcuStay[]           // Relasi ke IcuStay
+  visitDate       DateTime            @default(now())
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("visits")
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([roomId])
+  @@index([visitNumber])
+}
+
+// Model untuk ruangan
+model Room {
+  id              String              @id @default(cuid())
+  name            String
+  type            String              // examination, surgery, etc
+  location        String?
+  capacity        Int                 @default(1)
+  facilities      Json?
+  isAvailable     Boolean             @default(true)
+  visits          Visit[]
+  appointments    Appointment[]
+  inpatients      Inpatient[]
+  icuStays        IcuStay[]           // Relasi ke IcuStay
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @default(now())
+  
+  @@map("rooms")
+}
+
+// Model untuk antrian
+model QueueTicket {
+  id          String              @id @default(cuid())
+  ticketNumber String             @unique
+  status      String              @default("waiting") // waiting, called, done
+  patient     Patient             @relation(fields: [patientId], references: [id], map: "fk_queue_patient")
+  patientId   String
+  doctor      User                @relation(fields: [doctorId], references: [id], map: "fk_queue_doctor")
+  doctorId    String
+  visit       Visit               @relation(fields: [visitId], references: [id], map: "QueueTicketVisit")
+  visitId     String
+  issuedAt    DateTime            @default(now())
+  calledAt    DateTime?
+  completedAt DateTime?
+  isDeleted   Boolean             @default(false)
+  deletedAt   DateTime?
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+  
+  @@map("queue_tickets")
+  @@index([ticketNumber])
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([visitId])
+}
+
+// Model untuk resep obat
+model Prescription {
+  id              String              @id @default(cuid())
+  prescriptionNumber String           @unique
+  visit           Visit               @relation(fields: [visitId], references: [id], map: "fk_prescription_visit")
+  visitId         String
+  doctor          User                @relation(fields: [doctorId], references: [id], map: "PrescriptionDoctor")
+  doctorId        String
+  items           PrescriptionItem[]
+  status          String              @default("pending") // pending, dispensed, completed
+  notes           String?
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("prescriptions")
+  @@index([prescriptionNumber])
+  @@index([visitId])
+  @@index([doctorId])
+}
+
+// Model untuk item resep
+model PrescriptionItem {
+  id              String              @id @default(cuid())
+  prescription    Prescription        @relation(fields: [prescriptionId], references: [id], map: "fk_prescription_item")
+  prescriptionId  String
+  medicine        Medicine            @relation(fields: [medicineId], references: [id], map: "fk_prescription_medicine")
+  medicineId      String
+  dosage          String
+  frequency       String
+  duration        String
+  quantity        Int
+  notes           String?
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("prescription_items")
+  @@index([prescriptionId])
+  @@index([medicineId])
+}
+
+// Model untuk obat
+model Medicine {
+  id          String   @id @default(cuid())
+  name        String
+  unit        String
+  price       Int      @default(0)
+  stock       Int      @default(0)
+  description String?
+  isDeleted   Boolean  @default(false)
+  deletedAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  prescriptions PrescriptionItem[]
+  
+  @@map("medicines")
+}
+
+// Model untuk jadwal
+model Schedule {
+  id          String   @id @default(cuid())
+  doctor      User     @relation(fields: [doctorId], references: [id], map: "DoctorSchedules")
+  doctorId    String
+  dayOfWeek   String   // Monday, Tuesday, etc
+  startTime   String   // Format HH:MM
+  endTime     String   // Format HH:MM
+  isAvailable Boolean  @default(true)
+  isDeleted   Boolean  @default(false)
+  deletedAt   DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("schedules")
+  @@index([doctorId])
+  @@index([dayOfWeek])
+}
+
+// Model untuk janji temu
+model Appointment {
+  id              String              @id @default(cuid())
+  appointmentNumber String            @unique
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "fk_appointment_patient")
+  patientId       String
+  doctor          User                @relation(fields: [doctorId], references: [id], map: "fk_appointment_doctor")
+  doctorId        String
+  room            Room?               @relation(fields: [roomId], references: [id], map: "fk_appointment_room")
+  roomId          String?
+  visit           Visit?              @relation(fields: [visitId], references: [id], map: "AppointmentVisit")
+  visitId         String?
+  appointmentDate DateTime
+  reason          String              // Alasan janji temu
+  status          String              @default("scheduled") // scheduled, confirmed, completed, cancelled
+  notes           String?
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("appointments")
+  @@index([appointmentNumber])
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([visitId])
+}
+
+// Model untuk perjalanan ambulans
+model AmbulanceTrip {
+  id              String              @id @default(cuid())
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "fk_ambulance_patient")
+  patientId       String
+  ambulance       Ambulance           @relation(fields: [ambulanceId], references: [id], map: "fk_ambulance_trip")
+  ambulanceId     String
+  driver          AmbulanceDriver     @relation(fields: [driverId], references: [id], map: "fk_driver_trip")
+  driverId        String
+  destination     String
+  purpose         String
+  departureTime   DateTime
+  arrivalTime     DateTime?
+  status          String              @default("in_progress") // in_progress, completed, cancelled
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("ambulance_trips")
+  @@index([patientId])
+  @@index([ambulanceId])
+  @@index([driverId])
+}
+
+// Model untuk ambulans
+model Ambulance {
+  id              String              @id @default(cuid())
+  plateNumber     String              @unique
+  type            String
+  capacity        Int                 @default(2)
+  isAvailable     Boolean             @default(true)
+  trips           AmbulanceTrip[]
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("ambulances")
+  @@index([plateNumber])
+}
+
+// Model untuk sopir ambulans
+model AmbulanceDriver {
+  id              String              @id @default(cuid())
+  name            String
+  licenseNumber   String              @unique
+  phone           String
+  isAvailable     Boolean             @default(true)
+  trips           AmbulanceTrip[]
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("ambulance_drivers")
+  @@index([licenseNumber])
+}
+
+// Model untuk formulir
+model FormSubmission {
+  id              String              @id @default(cuid())
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "fk_form_patient")
+  patientId       String
+  template        FormTemplate        @relation(fields: [templateId], references: [id], map: "fk_form_template")
+  templateId      String
+  answers         Json
+  submittedAt     DateTime            @default(now())
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("form_submissions")
+  @@index([patientId])
+  @@index([templateId])
+}
+
+// Model untuk template formulir
+model FormTemplate {
+  id              String              @id @default(cuid())
+  name            String
+  description     String?
+  fields          Json
+  isActive        Boolean             @default(true)
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  submissions     FormSubmission[]
+  
+  @@map("form_templates")
+}
+
+// Model untuk rawat inap
+model Inpatient {
+  id              String              @id @default(cuid())
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "fk_inpatient_patient")
+  patientId       String
+  visit           Visit               @relation(fields: [visitId], references: [id], map: "InpatientVisit")
+  visitId         String
+  room            Room                @relation(fields: [roomId], references: [id], map: "InpatientRoom")
+  roomId          String
+  admissionDate   DateTime            @default(now())
+  dischargeDate   DateTime?
+  status          String              @default("admitted") // admitted, discharged, transferred
+  notes           String?
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("inpatients")
+  @@index([patientId])
+  @@index([visitId])
+  @@index([roomId])
+}
+
+// Model untuk gawat darurat
+model Emergency {
+  id              String              @id @default(cuid())
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "fk_emergency_patient")
+  patientId       String
+  visit           Visit               @relation(fields: [visitId], references: [id], map: "EmergencyVisit")
+  visitId         String
+  severityLevel   String              // low, medium, high, critical
+  incidentType    String              // accident, heart_attack, etc
+  description     String
+  handledAt       DateTime            @default(now())
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("emergencies")
+  @@index([patientId])
+  @@index([visitId])
+}
+
+// Model untuk ICU
+model IcuStay {
+  id              String              @id @default(cuid())
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "fk_icu_patient")
+  patientId       String
+  visit           Visit               @relation(fields: [visitId], references: [id], map: "IcuStayVisit")
+  visitId         String
+  room            Room                @relation(fields: [roomId], references: [id], map: "IcuStayRoom")
+  roomId          String
+  admissionDate   DateTime            @default(now())
+  dischargeDate   DateTime?
+  status          String              @default("admitted") // admitted, discharged
+  notes           String?
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("icu_stays")
+  @@index([patientId])
+  @@index([visitId])
+  @@index([roomId])
+}
+
+// Model untuk tagihan
+model Bill {
+  id              String              @id @default(cuid())
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "fk_bill_patient")
+  patientId       String
+  visit           Visit               @relation(fields: [visitId], references: [id], map: "fk_bill_visit")
+  visitId         String
+  billNumber      String              @unique
+  items           BillItem[]
+  totalAmount     Int                 @default(0)
+  discountPercent Decimal?            @default(0)
+  discountAmount  Int                 @default(0)
+  taxPercent      Decimal?            @default(0.11) // 11% default
+  taxAmount       Int                 @default(0)
+  grandTotal      Int                 @default(0)
+  paymentStatus   String              @default("unpaid") // unpaid, partially_paid, paid
+  dueDate         DateTime?
+  paidAt          DateTime?
+  notes           String?
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("bills")
+  @@index([patientId])
+  @@index([visitId])
+  @@index([billNumber])
+}
+
+// Model untuk item tagihan
+model BillItem {
+  id              String              @id @default(cuid())
+  bill            Bill                @relation(fields: [billId], references: [id], map: "fk_bill_item_bill")
+  billId          String
+  description     String
+  quantity        Int                 @default(1)
+  unitPrice       Int
+  total           Int                 @default(0)
+  notes           String?
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("bill_items")
+  @@index([billId])
+}
+
+// Model untuk pemeriksaan laboratorium
+model LaboratoryOrder {
+  id              String              @id @default(cuid())
+  visit           Visit               @relation(fields: [visitId], references: [id], map: "LabOrderVisit")
+  visitId         String
+  doctor          User                @relation(fields: [doctorId], references: [id], map: "LabOrderDoctor")
+  doctorId        String
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "LabOrderPatient")
+  patientId       String
+  orderNumber     String              @unique
+  tests           Json                // Daftar tes yang dipesan
+  status          String              @default("ordered") // ordered, in_progress, completed, cancelled
+  priority        String              @default("normal") // normal, urgent, stat
+  orderedAt       DateTime            @default(now())
+  completedAt     DateTime?
+  notes           String?
+  results         String?             // Hasil pemeriksaan
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("laboratory_orders")
+  @@index([visitId])
+  @@index([doctorId])
+  @@index([patientId])
+  @@index([orderNumber])
+}
+
+// Model untuk pemeriksaan radiologi
+model RadiologyOrder {
+  id              String              @id @default(cuid())
+  visit           Visit               @relation(fields: [visitId], references: [id], map: "RadOrderVisit")
+  visitId         String
+  doctor          User                @relation(fields: [doctorId], references: [id], map: "RadOrderDoctor")
+  doctorId        String
+  patient         Patient             @relation(fields: [patientId], references: [id], map: "RadOrderPatient")
+  patientId       String
+  orderNumber     String              @unique
+  procedures      Json                // Daftar prosedur yang dipesan
+  status          String              @default("ordered") // ordered, in_progress, completed, cancelled
+  priority        String              @default("normal") // normal, urgent, stat
+  orderedAt       DateTime            @default(now())
+  completedAt     DateTime?
+  notes           String?
+  results         String?             // Hasil pemeriksaan
+  isDeleted       Boolean             @default(false)
+  deletedAt       DateTime?
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("radiology_orders")
+  @@index([visitId])
+  @@index([doctorId])
+  @@index([patientId])
+  @@index([orderNumber])
+}
+
+// Model profil rumah sakit
+model HospitalProfile {
+  id              String              @id @default(cuid())
+  name            String
+  code            String
+  address         String
+  phone           String
+  fax             String?
+  email           String?
+  website         String?
+  faskesType      String              @default("RUMAH_SAKIT") // RUMAH_SAKIT, KLINIK, PUSKESMAS, APOTEK, LAINNYA
+  bpjsConfig      Json?
+  satusehatId     String?             // ID untuk integrasi satu sehat
+  isActive        Boolean             @default(true)
+  createdAt       DateTime            @default(now())
+  updatedAt       DateTime            @updatedAt
+  
+  @@map("hospital_profiles")
+  @@index([code])
+  @@index([isActive])
+}
+
+model SystemConfig {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  description String?
+  isPublic  Boolean  @default(false) // Whether this config can be read without authentication
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@map("system_configs")
+}
+
+// Generator dan datasource harus berada di akhir file
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
