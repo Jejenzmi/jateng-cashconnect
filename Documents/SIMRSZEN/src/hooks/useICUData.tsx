@@ -425,3 +425,43 @@ const useICUData = () => {
 };
 
 export default useICUData;
+
+// Stub exports for ICU components
+export interface ICUBed {
+  id: string;
+  bed_number: string;
+  room: string;
+  status: 'available' | 'occupied' | 'maintenance';
+  patient_id?: string;
+  patient_name?: string;
+}
+
+export interface ICUPatient {
+  id: string;
+  patient_id: string;
+  patient_name: string;
+  bed_id: string;
+  admission_date: string;
+  diagnosis: string;
+  status: string;
+}
+
+export function useICUBeds() {
+  return { data: [] as ICUBed[], isLoading: false };
+}
+
+export function useUpdateICUBed() {
+  return { mutate: (_data: Partial<ICUBed>) => {}, isPending: false };
+}
+
+export function useICUStatistics() {
+  return { data: { total: 0, occupied: 0, available: 0, maintenance: 0 }, isLoading: false };
+}
+
+export function useActiveICUPatients() {
+  return { data: [] as ICUPatient[], isLoading: false };
+}
+
+export function useICUMonitoring(patientId?: string) {
+  return { data: null, isLoading: false };
+}

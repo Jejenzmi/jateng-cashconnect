@@ -26,6 +26,10 @@ import {
   Plus, Edit, Send, ArrowDownLeft, ArrowUpRight, 
   CheckCircle, Clock, XCircle, Truck, RefreshCw 
 } from "lucide-react";
+import { format } from "date-fns";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Textarea } from "@/components/ui/textarea";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 interface SISRUTEReferral {
   id: string;
   referral_number: string;

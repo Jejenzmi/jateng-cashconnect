@@ -107,7 +107,7 @@ const useUserData = () => {
       filteredUsers: prev.users.filter(user =>
         user.username.toLowerCase().includes(term.toLowerCase()) ||
         user.email.toLowerCase().includes(term.toLowerCase()) ||
-        user.role.toLowerCase().includes(term.toLowerCase())
+        ((user as any).role || (user.roles user.role.toLowerCase()user.role.toLowerCase() user.roles[0]) || "").toLowerCase().includes(term.toLowerCase())
       ),
     }));
   };
@@ -183,7 +183,7 @@ const useUserData = () => {
           ? mockUsers.filter(user =>
               user.username.toLowerCase().includes(prev.searchTerm.toLowerCase()) ||
               user.email.toLowerCase().includes(prev.searchTerm.toLowerCase()) ||
-              user.role.toLowerCase().includes(prev.searchTerm.toLowerCase())
+              ((user as any).role || (user.roles user.role.toLowerCase()user.role.toLowerCase() user.roles[0]) || "").toLowerCase().includes(prev.searchTerm.toLowerCase())
             )
           : mockUsers,
         loading: false,

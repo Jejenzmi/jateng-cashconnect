@@ -239,14 +239,14 @@ export function ScheduleRosterTab() {
   const filteredEmployees = useMemo(() => {
     if (!employees) return [];
     if (departmentFilter === "all") return employees.filter((e) => e.status === "active");
-    return employees.filter((e) => e.status === "active" && e.department_id === departmentFilter);
+    return employees.filter((e) => e.status === "active" && e.department === departmentFilter);
   }, [employees, departmentFilter]);
 
   const departments = useMemo(() => {
     const depts = new Map<string, string>();
     employees?.forEach((emp) => {
-      if (emp.department_id && emp.departments?.name) {
-        depts.set(emp.department_id, emp.departments.name);
+      if (emp.department) {
+        depts.set(emp.department, emp.department);
       }
     });
     return Array.from(depts.entries());

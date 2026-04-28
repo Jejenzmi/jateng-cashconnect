@@ -1,6 +1,13 @@
 import { getApi, postApi, putApi, deleteApi } from '@/utils/api';
 import { useState, useEffect } from 'react';
 
+interface UserRole {
+  id: string;
+  user_id: string;
+  role: string;
+  permissions: string[];
+}
+
 interface MenuItem {
   id: string;
   name: string;

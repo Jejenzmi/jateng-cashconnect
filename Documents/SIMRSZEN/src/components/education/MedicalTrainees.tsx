@@ -70,8 +70,8 @@ export default function MedicalTrainees() {
         fetch('/api/education-programs').then(r => r.json())
       ]);
       
-      setMedicalTrainees(traineesRes);
-      setEducationPrograms(programsRes);
+      setTrainees(traineesRes);
+      setPrograms(programsRes);
     } catch (error) {
       console.error('Error fetching medical trainees:', error);
     } finally {

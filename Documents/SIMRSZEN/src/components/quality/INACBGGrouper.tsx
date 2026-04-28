@@ -84,7 +84,7 @@ export default function INACBGGrouper() {
     setIsLoading(true);
     try {
       // Fetch ICD-10 codes
-      const icd10Result = await getApi<Icd10Code[]>`
+      const icd10Result = await getApi<ICD10Code[]>`
         SELECT id, code, description_id
         FROM icd10_codes
         ORDER BY code

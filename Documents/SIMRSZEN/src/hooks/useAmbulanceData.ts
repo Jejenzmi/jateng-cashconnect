@@ -344,3 +344,44 @@ export function useAmbulanceData() {
     isUpdatingTrip: updateTrip.isPending,
   };
 }
+
+// Stub exports for AmbulanceCenter page
+export interface AmbulanceFleet {
+  id: string;
+  vehicle_number: string;
+  brand_model: string;
+  status: 'available' | 'maintenance' | 'on_mission';
+  driver_name: string;
+  driver_phone: string;
+}
+
+export interface AmbulanceDispatch {
+  id: string;
+  dispatch_number: string;
+  ambulance_id: string;
+  patient_name: string;
+  pickup_location: string;
+  destination: string;
+  status: string;
+  dispatched_at: string;
+}
+
+export function useAmbulanceFleet() {
+  const { ambulances, isLoadingAmbulances } = useAmbulanceData();
+  return { data: ambulances as AmbulanceFleet[], isLoading: isLoadingAmbulances };
+}
+
+export function useAmbulanceDispatches() {
+  const { trips, isLoadingTrips } = useAmbulanceData();
+  return { data: trips, isLoading: isLoadingTrips };
+}
+
+export function useCreateDispatch() {
+  const { createTrip } = useAmbulanceData();
+  return { mutate: createTrip, isPending: false };
+}
+
+export function generateDispatchNumber(): string {
+  const now = new Date();
+  return `DISP-${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}-${Math.floor(Math.random() * 9000) + 1000}`;
+}

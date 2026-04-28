@@ -46,8 +46,8 @@ export default function SmartDisplay() {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const navigate = useNavigate();
-  const { hasRole } = useAuth();
-  const canManage = hasRole("admin") || hasRole("manajemen");
+  const { roles } = useAuth();
+  const canManage = roles.includes("admin") || roles.includes("manajemen");
 
   // Sync active display when device changes
   useEffect(() => {

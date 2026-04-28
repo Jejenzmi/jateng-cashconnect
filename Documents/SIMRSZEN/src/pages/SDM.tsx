@@ -1,4 +1,4 @@
-import { useEmployeeStats } from "@/hooks/useHRData";
+import { useEmployees } from "@/hooks/useHRData";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Users, Clock, CalendarDays, Wallet, TrendingUp, GraduationCap, Settings, Calendar } from "lucide-react";
@@ -13,7 +13,13 @@ import { ShiftManagementTab } from "@/components/hr/ShiftManagementTab";
 import { ScheduleRosterTab } from "@/components/hr/ScheduleRosterTab";
 
 export default function SDM() {
-  const { data: stats } = useEmployeeStats();
+  const { data: employees } = useEmployees();
+  const stats = {
+    total: employees?.length || 0,
+    presentToday: 0,
+    pendingLeave: 0,
+    pendingPayroll: 0,
+  };
 
   return (
     <div className="p-6 space-y-6">

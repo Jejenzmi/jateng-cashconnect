@@ -51,9 +51,33 @@ export const apiRequest = async <T>(
 };
 
 // GET request
-export const getApi = async <T>(endpoint: string): Promise<T> => {
-  return apiRequest<T>(endpoint, { method: 'GET' });
-};
+function getApiImpl<T>(endpoint: string): Promise<T>;
+function getApiImpl<T>(query: TemplateStringsArray, ...params: any[]): Promise<T>;
+function getApiImpl<T>(endpointOrQuery: string | TemplateStringsArray, ...params: any[]): Promise<T> {
+  if (typeof endpointOrQuery === 'string') {
+    return apiRequest<T>(endpointOrQuery, { method: 'GET' });
+  }
+  // Tagged template literal - treat as SQL query (same as getApiUnsafe)
+  let sqlQuery = endpointOrQuery[0];
+  for (let i = 0; i < params.length; i++) {
+    sqlQuery += params[i] + endpointOrQuery[i + 1];
+  }
+  const fetchResult = fetch(`${API_BASE_URL}/unsafe-query`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${getToken() || ''}`,
+    },
+    body: JSON.stringify({ query: sqlQuery.trim() }),
+  }).then(response => {
+    if (!response.ok) {
+      throw new Error(`API request failed: ${response.statusText}`);
+    }
+    return response.json() as Promise<T>;
+  });
+  return fetchResult;
+}
+export const getApi = getApiImpl;
 
 // Unsafe GET request for direct SQL queries
 export const getApiUnsafe = async <T>(query: TemplateStringsArray, ...params: any[]): Promise<T> => {

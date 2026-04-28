@@ -13,7 +13,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import {
   Building2, Save, RefreshCw, CheckCircle, AlertTriangle, XCircle,
   ExternalLink, Key, Globe, Shield, Info, Network, Wifi, WifiOff,
-  Hospital, Stethoscope, Ambulance, ClipboardList, Server
+  Building, Stethoscope, Ambulance, ClipboardList, Server
 } from "lucide-react";
 import { useExternalIntegrations, SatuSehatConfig, BPJSConfig, SISRUTEConfig, BPJSAntreanConfig, EklaimIDRGConfig, PACSConfig } from "@/hooks/useExternalIntegrations";
 import { useToast } from "@/hooks/use-toast";
@@ -171,7 +171,7 @@ export function ExternalIntegrationsTab() {
                 <div className="flex items-center gap-3">
                   <div className={`p-2 rounded-lg ${integration.enabled ? "bg-primary/10" : "bg-muted"}`}>
                     {integration.code === "satusehat" && <Building2 className="h-5 w-5 text-primary" />}
-                    {integration.code === "bpjs" && <Hospital className="h-5 w-5 text-primary" />}
+                    {integration.code === "bpjs" && <Building className="h-5 w-5 text-primary" />}
                     {integration.code === "bpjs_antrean" && <ClipboardList className="h-5 w-5 text-primary" />}
                     {integration.code === "eklaim_idrg" && <Stethoscope className="h-5 w-5 text-primary" />}
                     {integration.code === "sisrute" && <Ambulance className="h-5 w-5 text-primary" />}
@@ -313,7 +313,7 @@ export function ExternalIntegrationsTab() {
             <AccordionItem value="bpjs">
               <AccordionTrigger>
                 <div className="flex items-center gap-3">
-                  <Hospital className="h-5 w-5" />
+                  <Building className="h-5 w-5" />
                   <span>BPJS Kesehatan (VClaim/PCare)</span>
                   {getStatusBadge(integrationStatuses.find(i => i.code === "bpjs")?.status || "disconnected")}
                 </div>

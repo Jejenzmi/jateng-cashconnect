@@ -130,14 +130,12 @@ export default function PurchaseOrders({ onOrderUpdate }: PurchaseOrdersProps) {
       // Create order
       const orderResult = await postApi("/generic-api", {});
 
-      if (orderError) throw orderError;
+      if (!orderResult) throw new Error("Failed to create order");
 
       // Create order items
       for (const item of validItems) {
         await postApi("/generic-api", {});
       }
-
-      if (itemsError) throw itemsError;
 
       toast.success("Pesanan berhasil dibuat");
       setShowCreateDialog(false);

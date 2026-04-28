@@ -1212,3 +1212,74 @@ export function useShiftSchedules(employeeId?: string) {
 
   return { data: schedules, isLoading };
 }
+
+// Stub types and hooks for HR components
+export interface OvertimeRecord {
+  id: string;
+  employee_id: string;
+  date: string;
+  hours: number;
+  rate: number;
+  total: number;
+  status: string;
+  created_at: string;
+}
+
+export interface PayrollRecord {
+  id: string;
+  employee_id: string;
+  period: string;
+  basic_salary: number;
+  allowances: number;
+  deductions: number;
+  net_salary: number;
+  status: string;
+  created_at: string;
+}
+
+export interface TrainingRecord {
+  id: string;
+  employee_id: string;
+  training_name: string;
+  start_date: string;
+  end_date: string;
+  status: string;
+  certificate_url?: string;
+  created_at: string;
+}
+
+export function calculateOvertimeRate(hourlyRate: number, hours: number): number {
+  return hourlyRate * hours * 1.5;
+}
+
+export function useLeaveRequests(employeeId?: string) {
+  return { data: [] as any[], isLoading: false };
+}
+
+export function useAddLeaveRequest() {
+  return { mutate: (_data: any) => {}, isPending: false };
+}
+
+export function useUpdateLeaveRequest() {
+  return { mutate: (_data: any) => {}, isPending: false };
+}
+
+export function useOvertimeRecords(employeeId?: string) {
+  return { data: [] as OvertimeRecord[], isLoading: false };
+}
+
+export function useAddOvertime() {
+  return { mutate: (_data: Partial<OvertimeRecord>) => {}, isPending: false };
+}
+
+export function useUpdateOvertime() {
+  return { mutate: (_data: Partial<OvertimeRecord>) => {}, isPending: false };
+}
+
+export function useTrainingRecords(employeeId?: string) {
+  return { data: [] as TrainingRecord[], isLoading: false };
+}
+
+export function useAddTraining() {
+  return { mutate: (_data: Partial<TrainingRecord>) => {}, isPending: false };
+}

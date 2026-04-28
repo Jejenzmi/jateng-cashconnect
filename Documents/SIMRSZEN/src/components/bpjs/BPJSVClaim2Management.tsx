@@ -28,7 +28,11 @@ import {
   Copy,
   Eye,
   EyeOff,
-  Building
+  Building,
+  Plus,
+  HeartPulse,
+  Activity,
+  Bed
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import apiClient from '@/lib/api-client';

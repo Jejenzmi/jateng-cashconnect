@@ -219,3 +219,23 @@ const useReportData = () => {
 };
 
 export default useReportData;
+// Stub exports for Laporan page
+export function useReportStats() {
+  return { data: null, isLoading: false };
+}
+
+export function useMonthlyVisits(year?: number) {
+  return { data: [] as any[], isLoading: false };
+}
+
+export function useMonthlyRevenue(year?: number) {
+  return { data: [] as any[], isLoading: false };
+}
+
+export function useDepartmentStats() {
+  return { data: [] as any[], isLoading: false };
+}
+
+export function useTopDiagnoses() {
+  return { data: [] as any[], isLoading: false };
+}

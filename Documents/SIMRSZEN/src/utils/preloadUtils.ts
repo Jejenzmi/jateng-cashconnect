@@ -24,7 +24,7 @@ export const preloadPages = {
   radiology: () => import('@/pages/Radiologi'),
   billing: () => import('@/pages/Billing'),
   settings: () => import('@/pages/Pengaturan'),
-  kiosk: () => import('@/pages/Kioska'),
+  kiosk: () => import('@/pages/Kiosk'),
   smartDisplay: () => import('@/pages/SmartDisplay'),
   auth: () => import('@/pages/Auth'),
 };

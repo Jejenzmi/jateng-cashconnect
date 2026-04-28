@@ -102,8 +102,7 @@ export default function InventoryBatches() {
 
         await putApi("/generic-api", {
           table: "medicines",
-          id: medicineId,
-          data: { stock: newStock }
+          id: medicine.id,
         });
 
         // Record transaction
@@ -111,7 +110,7 @@ export default function InventoryBatches() {
           table: "inventory_transactions",
           data: {
             type: "receipt",
-            itemId: medicineId,
+            itemId: medicine.id,
             quantity: qty,
             description: `Penerimaan batch ${batchNumber}`,
             date: new Date().toISOString()

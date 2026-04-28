@@ -431,7 +431,7 @@ export function EmployeeList() {
                   <TableCell className="font-mono text-sm">{emp.employee_number}</TableCell>
                   <TableCell className="font-medium">{emp.full_name}</TableCell>
                   <TableCell>{emp.position}</TableCell>
-                  <TableCell>{emp.departments?.name || "-"}</TableCell>
+                  <TableCell>{emp.department || "-"}</TableCell>
                   <TableCell>
                     <Badge variant="outline">{emp.employment_type}</Badge>
                   </TableCell>

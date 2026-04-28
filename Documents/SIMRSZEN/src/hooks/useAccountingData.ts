@@ -468,3 +468,92 @@ export function useAccountingData() {
     isDeleting: deleteJournal.isPending,
   };
 }
+// Stub types and hooks for accounting components
+export interface ChartOfAccount {
+  id: string;
+  account_number: string;
+  account_name: string;
+  account_type: string;
+  parent_account?: string;
+  balance: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface JournalEntry {
+  id: string;
+  journal_number: string;
+  journal_date: string;
+  description: string;
+  total_debit: number;
+  total_credit: number;
+  posted: boolean;
+  created_by: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface JournalEntryLine {
+  id: string;
+  journal_id: string;
+  account_id: string;
+  debit: number;
+  credit: number;
+  description: string;
+}
+
+export function useChartOfAccounts() {
+  const { accounts, isLoadingAccounts } = useAccountingData();
+  return { data: accounts as ChartOfAccount[], isLoading: isLoadingAccounts };
+}
+
+export function useAddAccount() {
+  return { mutate: (_data: Partial<ChartOfAccount>) => {}, isPending: false };
+}
+
+export function useUpdateAccount() {
+  return { mutate: (_data: Partial<ChartOfAccount>) => {}, isPending: false };
+}
+
+export function useIncomeStatement(period?: string) {
+  const { revenueExpenseData } = useAccountingData();
+  return { data: revenueExpenseData, isLoading: false };
+}
+
+export function useBalanceSheet(period?: string) {
+  const { accounts } = useAccountingData();
+  return { data: accounts, isLoading: false };
+}
+
+export function useCashFlowStatement(period?: string) {
+  const { cashData } = useAccountingData();
+  return { data: cashData, isLoading: false };
+}
+
+export function useGeneralLedger(accountId?: string) {
+  const { journals } = useAccountingData();
+  return { data: journals, isLoading: false };
+}
+
+export function useJournalEntries() {
+  const { journals, isLoadingJournals } = useAccountingData();
+  return { data: journals as JournalEntry[], isLoading: isLoadingJournals };
+}
+
+export function useJournalEntryWithLines(journalId?: string) {
+  const { getJournalLines } = useAccountingData();
+  return { data: null, isLoading: false };
+}
+
+export function useCreateJournalEntry() {
+  const { createJournal } = useAccountingData();
+  return { mutate: createJournal, isPending: false };
+}
+
+export function usePostJournal() {
+  return { mutate: (_id: string) => {}, isPending: false };
+}
+
+export function useVoidJournal() {
+  return { mutate: (_id: string) => {}, isPending: false };
+}

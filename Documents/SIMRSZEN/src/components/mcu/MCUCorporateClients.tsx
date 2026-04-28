@@ -55,7 +55,7 @@ export function MCUCorporateClients() {
                   <TableCell>{client.pic_name || "-"}</TableCell>
                   <TableCell>{client.phone || "-"}</TableCell>
                   <TableCell>
-                    {client.discount_percentage ? `${client.discount_percentage}%` : "-"}
+                    {client.discount_percent ? `${client.discount_percent}%` : "-"}
                   </TableCell>
                   <TableCell>
                     {client.contract_start && client.contract_end ? (

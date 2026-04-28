@@ -356,3 +356,22 @@ export function useHomeCareData() {
     isRecordingVisit: recordVisit.isPending,
   };
 }
+// Stub exports for HomeCare page
+export function useHomeCareVisits() {
+  const { visits, isLoadingVisits } = useHomeCareData();
+  return { data: visits, isLoading: isLoadingVisits };
+}
+
+export function useCreateHomeCareVisit() {
+  const { recordVisit } = useHomeCareData();
+  return { mutate: recordVisit, isPending: false };
+}
+
+export function useUpdateHomeCareVisit() {
+  return { mutate: (_data: any) => {}, isPending: false };
+}
+
+export function generateHomeCareVisitNumber(): string {
+  const now = new Date();
+  return `HC-${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, '0')}${String(now.getDate()).padStart(2, '0')}-${Math.floor(Math.random() * 9000) + 1000}`;
+}

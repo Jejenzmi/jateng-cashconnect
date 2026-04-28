@@ -186,6 +186,15 @@ export function useReportBuilderData() {
     },
   });
 
+  const executeReport = useMutation({
+    mutationFn: async (templateId: string) => {
+      return await postApi("/generic-api", { templateId });
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["report-history"] });
+    },
+  });
+
   return {
     reportTemplates,
     reportHistory,

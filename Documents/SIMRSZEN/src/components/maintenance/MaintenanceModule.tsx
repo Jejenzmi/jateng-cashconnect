@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Wrench, Ticket, Package, Activity, 
   Calendar, Clock, CheckCircle, AlertTriangle, 
-  Search, Filter, Users, Building2, Monitor
+  Search, Filter, Users, Building2, Monitor, FileText
 } from "lucide-react";
 
 interface Equipment {
